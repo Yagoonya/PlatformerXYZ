@@ -1700,7 +1700,6 @@ GameObject:
   m_Component:
   - component: {fileID: 519420032}
   - component: {fileID: 519420031}
-  - component: {fileID: 519420029}
   - component: {fileID: 519420030}
   - component: {fileID: 519420034}
   - component: {fileID: 519420035}
@@ -1711,14 +1710,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!81 &519420029
-AudioListener:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 519420028}
-  m_Enabled: 1
 --- !u!114 &519420030
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2787,7 +2778,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _data:
     _inventory:
-      _inventory: []
+      _inventory:
+      - Id: Sword
+        Value: 10
     Hp: 30
 --- !u!4 &789609676
 Transform:
@@ -23086,10 +23079,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1449998511}
     m_Modifications:
-    - target: {fileID: 622999447, guid: 3f680795e57fd0a43918be50be5004ca, type: 3}
-      propertyPath: _health
-      value: 100
-      objectReference: {fileID: 0}
     - target: {fileID: 622999447, guid: 3f680795e57fd0a43918be50be5004ca, type: 3}
       propertyPath: _onDie.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
