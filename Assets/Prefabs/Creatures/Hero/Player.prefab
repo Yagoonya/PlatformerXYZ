@@ -405,7 +405,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.5
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -1225,13 +1225,15 @@ MonoBehaviour:
   _source: {fileID: 1797497689}
   _sounds:
   - _id: Jump
-    _clip: {fileID: 8300000, guid: bebd393de05b4624b96b52015a79e622, type: 3}
+    _clip: {fileID: 8300000, guid: cd1685db0b879094fad5b0a37c91c062, type: 3}
   - _id: Melee
-    _clip: {fileID: 8300000, guid: 9c1c49c45fad25e4a8d9d5fb576fbd17, type: 3}
+    _clip: {fileID: 8300000, guid: d46323e22e74e46baa241cbf48c85671, type: 3}
   - _id: Range
-    _clip: {fileID: 8300000, guid: 512c9e08b0ef4a941a27ffea396d55cf, type: 3}
+    _clip: {fileID: 8300000, guid: 9df8093697b33674c8174efa17d3b463, type: 3}
   - _id: Hurt
-    _clip: {fileID: 8300000, guid: 7b3d4cb276070e54b8325610c25a47c1, type: 3}
+    _clip: {fileID: 8300000, guid: 6f27fd2faecd6d8449bb3713adcec400, type: 3}
+  - _id: Heal
+    _clip: {fileID: 8300000, guid: 167053ccd2cc4b142b10ef8f01a94b60, type: 3}
 --- !u!1 &7997041186905544089
 GameObject:
   m_ObjectHideFlags: 0

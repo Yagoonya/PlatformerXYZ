@@ -203,6 +203,7 @@ namespace PixelCrew.Creatures.Hero
             if (HealthPotionCount >= 1)
             {
                 _session.Data.Invetory.Remove("HealPotion", 1);
+                Sounds.Play("Heal");
                 _particles.Spawn("Heal");
                 _health.ApplyChange(5);
             }

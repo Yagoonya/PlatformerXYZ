@@ -7,6 +7,27 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -5268849725585173959, guid: b43c1bce0e03485479fbe95f04210b84,
+        type: 3}
+      propertyPath: m_Pitch
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -5268849725585173959, guid: b43c1bce0e03485479fbe95f04210b84,
+        type: 3}
+      propertyPath: m_Volume
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -5268849725585173959, guid: b43c1bce0e03485479fbe95f04210b84,
+        type: 3}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: f9d0026488867d543beec3cd350f61c9, type: 3}
+    - target: {fileID: -5268849725585173959, guid: b43c1bce0e03485479fbe95f04210b84,
+        type: 3}
+      propertyPath: OutputAudioMixerGroup
+      value: 
+      objectReference: {fileID: 24300002, guid: 4368c65cd113f5e4095d091fba1e35bc,
+        type: 2}
     - target: {fileID: 7097230355754658547, guid: b43c1bce0e03485479fbe95f04210b84,
         type: 3}
       propertyPath: m_RootOrder

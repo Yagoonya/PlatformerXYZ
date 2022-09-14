@@ -1,5 +1,34 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!244 &-4817208616215756888
+AudioMixerEffectController:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: 
+  m_EffectID: 4ca8073c67e1bb649a1070f7f08ebb0c
+  m_EffectName: Lowpass Simple
+  m_MixLevel: 1c1ba237d3b3ada4680e3cb2bc3da1c4
+  m_Parameters:
+  - m_ParameterName: Cutoff freq
+    m_GUID: f06c23796d78c7540b8088ca65423653
+  m_SendTarget: {fileID: 0}
+  m_EnableWetMix: 0
+  m_Bypass: 0
+--- !u!245 &-606652908742430007
+AudioMixerSnapshotController:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: cave
+  m_AudioMixer: {fileID: 24100000}
+  m_SnapshotID: 62bee9795885fab4a9df0f4e5c846aed
+  m_FloatValues:
+    edc72cc3b615e834cbf7a7c323f3261e: 0.6
+    f06c23796d78c7540b8088ca65423653: 350
+  m_TransitionOverrides: {}
 --- !u!241 &24100000
 AudioMixerController:
   m_ObjectHideFlags: 0
@@ -11,6 +40,7 @@ AudioMixerController:
   m_MasterGroup: {fileID: 24300002}
   m_Snapshots:
   - {fileID: 24500006}
+  - {fileID: -606652908742430007}
   m_StartSnapshot: {fileID: 24500006}
   m_SuspendThreshold: -80
   m_EnableSuspend: 1
@@ -37,6 +67,7 @@ AudioMixerGroupController:
   m_Send: 00000000000000000000000000000000
   m_Effects:
   - {fileID: 24400004}
+  - {fileID: -4817208616215756888}
   m_UserColorIndex: 0
   m_Mute: 0
   m_Solo: 0
@@ -61,8 +92,10 @@ AudioMixerSnapshotController:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Snapshot
+  m_Name: normal
   m_AudioMixer: {fileID: 24100000}
   m_SnapshotID: ea46cfe2d965c194893f814235e2f761
-  m_FloatValues: {}
+  m_FloatValues:
+    edc72cc3b615e834cbf7a7c323f3261e: 0.6
+    f06c23796d78c7540b8088ca65423653: 22000
   m_TransitionOverrides: {}
