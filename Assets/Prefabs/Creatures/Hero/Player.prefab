@@ -402,11 +402,12 @@ AudioSource:
   m_GameObject: {fileID: 1797497686}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: 24300002, guid: 4368c65cd113f5e4095d091fba1e35bc,
+    type: 2}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
-  m_Volume: 0.5
-  m_Pitch: 1
+  m_Volume: 0.4
+  m_Pitch: 0.9
   Loop: 1
   Mute: 0
   Spatialize: 0
@@ -706,7 +707,8 @@ AudioSource:
   m_GameObject: {fileID: 5529261657147007725}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: 24300002, guid: 239c7202904d9a74eaa8b270961ff896,
+    type: 2}
   m_audioClip: {fileID: 8300000, guid: 97abe0eb68330d84d97fe7059ce81f68, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 0.7
@@ -1229,7 +1231,7 @@ MonoBehaviour:
   - _id: Melee
     _clip: {fileID: 8300000, guid: d46323e22e74e46baa241cbf48c85671, type: 3}
   - _id: Range
-    _clip: {fileID: 8300000, guid: 9df8093697b33674c8174efa17d3b463, type: 3}
+    _clip: {fileID: 8300000, guid: ed9c8255396363a4f997d9f452d4c7b9, type: 3}
   - _id: Hurt
     _clip: {fileID: 8300000, guid: 6f27fd2faecd6d8449bb3713adcec400, type: 3}
   - _id: Heal
