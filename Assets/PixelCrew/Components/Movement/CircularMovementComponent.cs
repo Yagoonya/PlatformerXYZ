@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace PixelCrew.Components.Movement
 {
@@ -11,65 +8,76 @@ namespace PixelCrew.Components.Movement
         [Range(0, 10)] [SerializeField] private float _speed = 0.5f;
         [SerializeField] private bool _isClockwise;
 
-        private Transform[] _circles;
-        private List<float> _angles = new List<float>();
+        private Rigidbody2D[] _bodies;
+        private Vector2[] _positions;
+        private float _time;
 
-        private float _positionX;
-        private float _positionY;
-        private float _ckwMultiply;
-
-        private void OnValidate()
+        private void Awake()
         {
-            _ckwMultiply = _isClockwise ? -1 : 1;
-            for (var i = 0; i < transform.childCount; i++)
-            {
-                _circles = GetComponentsInChildren<Transform>().Skip(1).ToArray();
-            }
-            
-            var delta = CalculateAngleDeltaInRadians(_circles.Length);
+            UpdateContent();
+        }
 
-            if (_circles != null)
-            {
-                for (int i = 0; i < _circles.Length; i++)
-                {
-                    var angle = i * delta;
-                    _angles.Add(angle);
-                    _positionX = transform.position.x + Mathf.Cos(angle) * _radius;
-                    _positionY = transform.position.y + Mathf.Sin(angle) * _radius;
-                    _circles[i].position = new Vector2(_positionX, _positionY);
-                }
-            }
+        private void UpdateContent()
+        {
+            _bodies = GetComponentsInChildren<Rigidbody2D>();
+            _positions = new Vector2[_bodies.Length];
         }
 
         private void Update()
         {
-            for (int i = 0; i < _circles.Length; i++)
+            CalculatePositions();
+            var isAllDead = true;
+            for (var i = 0; i < _bodies.Length; i++)
             {
-                if (_circles[i] != null)
+                if (_bodies[i])
                 {
-                    _positionX = transform.position.x + Mathf.Cos(_angles[i]) * _radius;
-                    _positionY = transform.position.y + Mathf.Sin(_angles[i]) * _radius * _ckwMultiply;
-                    _circles[i].position = new Vector2(_positionX, _positionY);
-                    _angles[i] += Time.deltaTime * _speed;
+                    _bodies[i].MovePosition(_positions[i]);
+                    isAllDead = false;
                 }
+            }
+
+            if (isAllDead)
+            {
+                enabled = false;
+                Destroy(gameObject, 1f);
+            }
+
+            _time += Time.deltaTime;
+        }
+
+        private void CalculatePositions()
+        {
+            var multiplier = _isClockwise ? -1 : 1;
+            var step = 2 * Mathf.PI / _bodies.Length;
+
+            Vector2 containerPosition = transform.position;
+            for (var i = 0; i < _bodies.Length; i++)
+            {
+                var angle = step * i;
+                var pos = new Vector2(
+                    Mathf.Cos(angle + _time * _speed ) * _radius,
+                    Mathf.Sin(angle + _time * _speed) * _radius * multiplier
+                );
+                _positions[i] = containerPosition + pos;
+            }
+        }
+        
+#if UNITY_EDITOR
+        private void OnValidate()
+        {
+            UpdateContent();
+            CalculatePositions();
+            for (var i = 0; i < _bodies.Length; i++)
+            {
+                _bodies[i].transform.position = _positions[i];
             }
         }
 
-        private float CalculateAngleDeltaInRadians(int quantity)
+        private void OnDrawGizmosSelected()
         {
-            var angle = 360f / quantity;
-            var angelInRadians = angle * (Mathf.PI / 180);
-            return angelInRadians;
+            UnityEditor.Handles.DrawWireDisc(transform.position, Vector3.forward, _radius);
         }
-
-        private void OnDrawGizmos()
-        {
-            Gizmos.color = Color.white;
-            Gizmos.DrawWireSphere(transform.position, _radius);
-        }
-        
+#endif
     }
-    
-    
-    
+   
 }

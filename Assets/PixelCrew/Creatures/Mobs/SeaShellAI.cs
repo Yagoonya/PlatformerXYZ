@@ -6,9 +6,6 @@ namespace PixelCrew.Creatures.Mobs
 {
     public class SeaShellAI : ShootingTrapAI
     {
-        [SerializeField] private ColliderCheck _vision;
-        [SerializeField] protected Cooldown _rangeCooldown;
-        
         [Header("Melee")]
         [SerializeField] private Cooldown _meleeCooldown;
         [SerializeField] private CheckCircleOverlap _melleAttack;
@@ -16,7 +13,7 @@ namespace PixelCrew.Creatures.Mobs
         
         private static readonly int Melee = Animator.StringToHash("melee");
         
-        protected void Update()
+        protected override void Update()
         {
             {
                 if (_vision.IsTouchingLayer)
@@ -32,12 +29,6 @@ namespace PixelCrew.Creatures.Mobs
                         RangeAttack();
                 }
             }
-        }
-        
-        protected override void RangeAttack()
-        {
-            _rangeCooldown.Reset();
-            base.RangeAttack();
         }
         
         private void MeleeAttack()
