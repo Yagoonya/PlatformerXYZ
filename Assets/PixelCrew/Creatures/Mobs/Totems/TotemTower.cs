@@ -11,6 +11,7 @@ namespace PixelCrew.Creatures.Mobs.Totems
     {
         [SerializeField] private List<ShootingTrapAI> _traps;
         [SerializeField] private Cooldown _cooldown;
+        [SerializeField] private bool _inTurn;
 
         private int _currentTrap;
 
@@ -49,7 +50,17 @@ namespace PixelCrew.Creatures.Mobs.Totems
                 {
                     _traps[_currentTrap].RangeAttack();
                     _cooldown.Reset();
-                    _currentTrap = (int)Mathf.Repeat(_currentTrap + 1, _traps.Count);
+                    if (_inTurn)
+                    {
+                        _currentTrap = (int)Mathf.Repeat(_currentTrap + 1, _traps.Count);
+                    }
+                    else
+                    {
+                        foreach (var trap in _traps)
+                        {
+                            trap.RangeAttack();
+                        }
+                    }
                 }
             }
         }

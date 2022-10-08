@@ -10,7 +10,6 @@ namespace PixelCrew.Components.ColliderBased
     public class CheckCircleOverlap : MonoBehaviour
     {
         [SerializeField] private float _radius = 1f;
-        //[SerializeField] private LayerMask _mask;
         [SerializeField] private string[] _tags;
         [SerializeField] private OnOverlapEvent _onOverlap;
         private readonly Collider2D[] _intercationResult = new Collider2D[10];

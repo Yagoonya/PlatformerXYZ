@@ -10,7 +10,7 @@ namespace PixelCrew.Creatures
     {
         [Header("Parameters")]
         [SerializeField] private bool _invertScale;
-        [SerializeField] private float _speed;
+        [SerializeField] public float _speed;
         [SerializeField] protected float _jumpForce;
         [SerializeField] private float _damageVelocity;
 
@@ -115,11 +115,11 @@ namespace PixelCrew.Creatures
         public virtual void Attack()
         {
             Animator.SetTrigger(AttackKey);
-            Sounds.Play("Melee");
         }
 
         public void OnAttacking()
         {
+            Sounds.Play("Melee");
             _attackRange.Check();
         }
     }

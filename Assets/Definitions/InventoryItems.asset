@@ -20,4 +20,4 @@ MonoBehaviour:
   - _id: Key
     _isStackable: 0
   - _id: HealPotion
-    _isStackable: 0
+    _isStackable: 1

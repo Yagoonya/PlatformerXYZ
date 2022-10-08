@@ -22,11 +22,9 @@ namespace PixelCrew.Components
 
             SetLockInput(input, true);
             yield return AlphaAnimation(sprite, 0);
-            target.SetActive(false);
 
             yield return MoveAnimation(target);
-
-            target.SetActive(true);
+            
             yield return AlphaAnimation(sprite, 1);
             SetLockInput(input, false);
         }
