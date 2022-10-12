@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using PixelCrew.UI.PauseMenu;
+using UnityEngine;
 using UnityEngine.InputSystem;
 
 namespace PixelCrew.Creatures.Hero
@@ -6,6 +7,7 @@ namespace PixelCrew.Creatures.Hero
     public class PlayerInputReader : MonoBehaviour
     {
         [SerializeField] private Hero _hero;
+        [SerializeField] private PauseMenuController _pause;
 
         public void OnMovement(InputAction.CallbackContext context)
         {
@@ -47,6 +49,12 @@ namespace PixelCrew.Creatures.Hero
             {
                 _hero.HoldingThrow();
             }
+        }
+
+        public void OnPauseGame(InputAction.CallbackContext context)
+        {
+            if(context.performed)
+                _pause.PauseGame();
         }
     }
 }
