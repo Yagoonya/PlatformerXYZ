@@ -19,7 +19,7 @@ namespace PixelCrew.UI.PauseMenu
         private void OnShowPauseWindow()
         {
             var window = Resources.Load<GameObject>("UI/PauseMenu");
-            var canvas = FindObjectOfType<Canvas>();
+            var canvas = GameObject.FindWithTag("PauseCanvas").GetComponent<Canvas>();
             Instantiate(window, canvas.transform);
         }
     }

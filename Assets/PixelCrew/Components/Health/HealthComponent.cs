@@ -11,6 +11,15 @@ namespace PixelCrew.Components.Health
         [SerializeField] public UnityEvent _onDie;
         [SerializeField] private HealthChangeEvent _onChange;
 
+        private int _maxHealth;
+        public int Health => _health;
+        public int MaxHealth => _maxHealth;
+
+        private void Awake()
+        {
+            _maxHealth = _health;
+        }
+
         public void ApplyChange(int changingValue)
         {
             if (_health <= 0) return;
@@ -21,10 +30,12 @@ namespace PixelCrew.Components.Health
                 _onChange?.Invoke(_health);
                 Debug.Log($"Всего здоровья {_health} у {gameObject.name}");
             }
+
             if (changingValue < 0)
             {
                 _onDamage?.Invoke();
             }
+
             if (_health <= 0)
             {
                 _onDie?.Invoke();
@@ -42,9 +53,8 @@ namespace PixelCrew.Components.Health
         }
 
         [Serializable]
-        public class HealthChangeEvent: UnityEvent<int>
+        public class HealthChangeEvent : UnityEvent<int>
         {
-
         }
     }
 }

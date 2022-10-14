@@ -8,6 +8,8 @@ TagManager:
   - Enemy
   - Interactable
   - Sword
+  - SfxAudioSource
+  - PauseCanvas
   layers:
   - Default
   - TransparentFX

@@ -123,7 +123,7 @@ namespace PixelCrew.Creatures.Mobs
             StartCoroutine(coroutine);
         }
 
-        public void OnDie()
+        public virtual void OnDie()
         {
             Creature.SetDirection(Vector2.zero);
             _isDead = true;

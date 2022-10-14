@@ -7,7 +7,13 @@ namespace PixelCrew.Creatures.Hero
     public class PlayerInputReader : MonoBehaviour
     {
         [SerializeField] private Hero _hero;
-        [SerializeField] private PauseMenuController _pause;
+        private PauseMenuController _pause;
+
+        private void Start()
+        {
+            if (_pause == null)
+                _pause = FindObjectOfType<PauseMenuController>();
+        }
 
         public void OnMovement(InputAction.CallbackContext context)
         {
@@ -45,6 +51,7 @@ namespace PixelCrew.Creatures.Hero
             {
                 _hero.Throw();
             }
+
             if (context.canceled && context.duration > 1)
             {
                 _hero.HoldingThrow();
@@ -53,7 +60,7 @@ namespace PixelCrew.Creatures.Hero
 
         public void OnPauseGame(InputAction.CallbackContext context)
         {
-            if(context.performed)
+            if (context.performed)
                 _pause.PauseGame();
         }
     }

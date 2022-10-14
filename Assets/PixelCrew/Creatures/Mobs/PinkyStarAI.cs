@@ -64,5 +64,11 @@ namespace PixelCrew.Creatures.Mobs
             Creature.SetDirection(Vector2.zero);
             _vision.gameObject.SetActive(true);
         }
+
+        public override void OnDie()
+        {
+            base.OnDie();
+            _rollCollider.enabled = false;
+        }
     }
 }
