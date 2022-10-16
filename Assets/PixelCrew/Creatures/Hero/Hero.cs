@@ -59,7 +59,7 @@ namespace PixelCrew.Creatures.Hero
         {
             _session = FindObjectOfType<GameSession>();
             var health = GetComponent<HealthComponent>();
-            _session.Data.Invetory.OnChanged += OnInvetoryChanged;
+            _session.Data.Invetory.OnChanged += OnInventoryChanged;
 
             health.SetHealth(_session.Data.Hp.Value);
             UpdateHeroWeapon();
@@ -67,10 +67,10 @@ namespace PixelCrew.Creatures.Hero
 
         private void OnDestroy()
         {
-            _session.Data.Invetory.OnChanged -= OnInvetoryChanged;
+            _session.Data.Invetory.OnChanged -= OnInventoryChanged;
         }
         
-        private void OnInvetoryChanged(string id, int value)
+        private void OnInventoryChanged(string id, int value)
         {
             if(id == "Sword")
                 UpdateHeroWeapon();
