@@ -7,10 +7,12 @@ namespace PixelCrew.Model.Definitions
     {
         [SerializeField] private InventoryItemsDefinition _items;
         [SerializeField] private ThrowableItemsDefinition _throwableItems;
+        [SerializeField] private UsableItemsDefinition _usableItems;
         [SerializeField] private PlayerDefinition _player;
 
         public InventoryItemsDefinition Items => _items;
         public ThrowableItemsDefinition Throwable => _throwableItems;
+        public UsableItemsDefinition Usable => _usableItems;
         
         public PlayerDefinition Player => _player;
         

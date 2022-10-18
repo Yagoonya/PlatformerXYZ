@@ -45,6 +45,14 @@ namespace PixelCrew.Creatures.Hero
             }
         }
 
+        public void OnUseItem(InputAction.CallbackContext context)
+        {
+            if (context.performed)
+            {
+                _hero.UsePotion();
+            }
+        }
+
         public void OnThrow(InputAction.CallbackContext context)
         {
             if (context.canceled && context.duration < 1)

@@ -31,6 +31,7 @@ namespace PixelCrew.Creatures
         private static readonly int VerticalVelocity = Animator.StringToHash("vertical-velocity");
         private static readonly int Hit = Animator.StringToHash("hit");
         private static readonly int AttackKey = Animator.StringToHash("attack");
+        
 
         protected virtual void Awake()
         {

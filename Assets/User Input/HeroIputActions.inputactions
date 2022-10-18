@@ -60,6 +60,14 @@
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": ""
+                },
+                {
+                    "name": "UseItem",
+                    "type": "Button",
+                    "id": "07a7e5a2-cac2-4418-88d3-842f91bc807b",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
                 }
             ],
             "bindings": [
@@ -170,6 +178,17 @@
                     "processors": "",
                     "groups": "",
                     "action": "PauseMenu",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "dfa0bbfa-8cbe-44c8-a081-7be80bc3374a",
+                    "path": "<Keyboard>/f",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "UseItem",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

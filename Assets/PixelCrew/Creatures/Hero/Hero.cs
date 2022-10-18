@@ -1,4 +1,5 @@
 ﻿using System.Collections;
+using System.Linq;
 using PixelCrew.Components;
 using PixelCrew.Components.ColliderBased;
 using PixelCrew.Components.GameObjectBased;
@@ -40,10 +41,9 @@ namespace PixelCrew.Creatures.Hero
 
         private GameSession _session;
         private float _defaultGravityScale;
-        private HealthComponent _health;
 
         private const string SwordId = "Sword";
-        
+
         private int CoinsCount => _session.Data.Invetory.Count("Coin");
         private int SwordCount => _session.Data.Invetory.Count(SwordId);
         private int HealthPotionCount => _session.Data.Invetory.Count("HealPotion");
@@ -62,10 +62,23 @@ namespace PixelCrew.Creatures.Hero
             }
         }
 
+        private bool CanUse
+        {
+            get
+            {
+                if (SelectedItemId == "HealPotion" || SelectedItemId == "BigHealthPotion" || SelectedItemId == "SpeedPotion")
+                {
+                    var def = DefinitionFacade.I.Items.Get(SelectedItemId);
+                    return def.HasTag(ItemTag.Usable);
+                }
+
+                return false;
+            }
+        }
+
         protected override void Awake()
         {
             base.Awake();
-            _health = GetComponent<HealthComponent>();
             _defaultGravityScale = RigidBody.gravityScale;
         }
 
@@ -225,16 +238,19 @@ namespace PixelCrew.Creatures.Hero
 
         public void UsePotion()
         {
-            if (HealthPotionCount >= 1)
+            if (CanUse)
             {
-                _session.Data.Invetory.Remove("HealPotion", 1);
+                var usableId = _session.QuickInventory.SelectedItem.Id;
+                var usableDefinition = DefinitionFacade.I.Usable.Get(usableId);
                 Sounds.Play("Heal");
                 _particles.Spawn("Heal");
-                _health.ApplyChange(5);
+                usableDefinition.Function.Use();
+                Debug.Log($"Used{usableId}");
+                _session.Data.Invetory.Remove(usableId,1);
             }
             else
             {
-                Debug.Log("Нет зелья!");
+                Debug.Log("Зелье не выбрано!");
             }
         }
 
