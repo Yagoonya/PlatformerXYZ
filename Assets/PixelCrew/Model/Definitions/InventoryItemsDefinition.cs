@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 using UnityEngine;
 
 namespace PixelCrew.Model.Definitions
@@ -6,9 +7,9 @@ namespace PixelCrew.Model.Definitions
     [CreateAssetMenu(menuName = "Defs/InventoryItems", fileName = "InventoryItems")]
     public class InventoryItemsDefinition : ScriptableObject
     {
-        [SerializeField] private ItemDefenition[] _items;
+        [SerializeField] private ItemDefinition[] _items;
 
-        public ItemDefenition Get(string id)
+        public ItemDefinition Get(string id)
         {
             foreach (var itemDef in _items)
             {
@@ -22,17 +23,23 @@ namespace PixelCrew.Model.Definitions
         }
 
 #if UNITY_EDITOR
-        public ItemDefenition[] ItemsForEditor => _items;
+        public ItemDefinition[] ItemsForEditor => _items;
 #endif
     }
 
     [Serializable]
-    public struct ItemDefenition
+    public struct ItemDefinition
     {
         [SerializeField] private string _id;
-        [SerializeField] private bool _isStackable;
+        [SerializeField] private Sprite _icon;
+        [SerializeField] private ItemTag[] _tags;
         public string Id => _id;
-        public bool IsStackable => _isStackable;
         public bool IsVoid => string.IsNullOrEmpty(_id);
+        public Sprite Icon => _icon;
+
+        public bool HasTag(ItemTag tag)
+        {
+            return _tags.Contains(tag);
+        }
     }
 }

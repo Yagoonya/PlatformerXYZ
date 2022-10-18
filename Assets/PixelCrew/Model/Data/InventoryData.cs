@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using PixelCrew.Model.Definitions;
 using UnityEngine;
 
@@ -19,11 +20,11 @@ namespace PixelCrew.Model.Data
             if (value <= 0) return;
 
             var itemDef = DefinitionFacade.I.Items.Get(id);
-            if(itemDef.IsVoid) return;
+            if (itemDef.IsVoid) return;
 
-            if (itemDef.IsStackable)
+            if (itemDef.HasTag(ItemTag.Stackable))
             {
-                AddToStack(id,value);
+                AddToStack(id, value);
             }
             else
             {
@@ -33,30 +34,43 @@ namespace PixelCrew.Model.Data
             OnChanged?.Invoke(id, Count(id));
         }
 
+        public InventoryItemData[] GetAll(params ItemTag[] tags)
+        {
+            var retValue = new List<InventoryItemData>();
+            foreach (var item in _inventory)
+            {
+                var itemDef = DefinitionFacade.I.Items.Get(item.Id);
+                var isAllRequirementsMet = tags.All(x => itemDef.HasTag(x));
+                if (isAllRequirementsMet)
+                    retValue.Add(item);
+            }
+
+            return retValue.ToArray();
+        }
+
         private void AddToStack(string id, int value)
         {
             var isFull = _inventory.Count >= DefinitionFacade.I.Player.InventorySize;
             var item = GetItem(id);
             if (item == null)
             {
-                if(isFull) return;
+                if (isFull) return;
 
                 item = new InventoryItemData(id);
                 _inventory.Add(item);
             }
 
             item.Value += value;
-            
         }
 
         private void AddNonStack(string id, int value)
         {
             var itemLast = DefinitionFacade.I.Player.InventorySize - _inventory.Count;
             value = Mathf.Min(itemLast, value);
-            
+
             for (int i = 0; i < value; i++)
             {
-                var item = new InventoryItemData(id) {Value = 1};
+                var item = new InventoryItemData(id) { Value = 1 };
                 _inventory.Add(item);
             }
         }
@@ -64,9 +78,9 @@ namespace PixelCrew.Model.Data
         public void Remove(string id, int value)
         {
             var itemDef = DefinitionFacade.I.Items.Get(id);
-            if(itemDef.IsVoid) return;
+            if (itemDef.IsVoid) return;
 
-            if (itemDef.IsStackable)
+            if (itemDef.HasTag(ItemTag.Stackable))
             {
                 RemoveFromStack(id, value);
             }
@@ -74,14 +88,14 @@ namespace PixelCrew.Model.Data
             {
                 RemoveFromNonStack(id, value);
             }
-            
+
             OnChanged?.Invoke(id, Count(id));
         }
 
         private void RemoveFromStack(string id, int value)
         {
             var item = GetItem(id);
-            if(item == null) return;
+            if (item == null) return;
 
             item.Value -= value;
 
@@ -94,7 +108,7 @@ namespace PixelCrew.Model.Data
             for (int i = 0; i < value; i++)
             {
                 var item = GetItem(id);
-                if(item == null) return;
+                if (item == null) return;
 
                 _inventory.Remove(item);
             }

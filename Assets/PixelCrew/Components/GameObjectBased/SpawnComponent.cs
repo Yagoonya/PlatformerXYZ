@@ -16,5 +16,10 @@ namespace PixelCrew.Components.GameObjectBased
             instantiate.transform.localScale = scale;
             instantiate.SetActive(true);
         }
+
+        public void SetPrefab(GameObject prefab)
+        {
+            _prefab = prefab;
+        }
     }
 }

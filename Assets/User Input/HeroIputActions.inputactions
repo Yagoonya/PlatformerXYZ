@@ -46,7 +46,7 @@
                     "interactions": "Hold(duration=1)"
                 },
                 {
-                    "name": "UseItem",
+                    "name": "NextItem",
                     "type": "Button",
                     "id": "8ee7c929-1815-4c3d-a839-9997a88a33d1",
                     "expectedControlType": "Button",
@@ -154,11 +154,11 @@
                 {
                     "name": "",
                     "id": "ec7bd0d3-1850-4797-82e3-c43feadd8c42",
-                    "path": "<Keyboard>/f",
+                    "path": "<Keyboard>/q",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "UseItem",
+                    "action": "NextItem",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
