@@ -1,5 +1,5 @@
-﻿using System;
-using PixelCrew.Creatures.Hero;
+﻿using PixelCrew.Creatures.Hero;
+using PixelCrew.Utils;
 using UnityEngine;
 
 namespace PixelCrew.Components.Collectables.Potions

@@ -9,10 +9,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b7d6787584e2429c82119dfb07ffad5b, type: 3}
-  m_Name: GameSettings
+  m_Script: {fileID: 11500000, guid: b84d46b9be0f4128a2bc9fa5c7b8c171, type: 3}
+  m_Name: Crabby_GemObtained
   m_EditorClassIdentifier: 
-  _music:
-    _value: 0.20598096
-  _sfx:
-    _value: 1
+  _data:
+    _sentences:
+    - And now a miracle!
+    - I have a Gem...
+    - And you are not!!!
+    - Ahahahahaha!

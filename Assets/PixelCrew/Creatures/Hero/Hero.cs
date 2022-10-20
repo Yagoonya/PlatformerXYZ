@@ -1,4 +1,6 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
+using System.Collections.Generic;
 using System.Linq;
 using PixelCrew.Components;
 using PixelCrew.Components.ColliderBased;
@@ -44,6 +46,8 @@ namespace PixelCrew.Creatures.Hero
 
         private const string SwordId = "Sword";
 
+        private string[] PotionsId = {"HealPotion", "BigHealthPotion", "SpeedPotion"};
+
         private int CoinsCount => _session.Data.Invetory.Count("Coin");
         private int SwordCount => _session.Data.Invetory.Count(SwordId);
         private int HealthPotionCount => _session.Data.Invetory.Count("HealPotion");
@@ -66,7 +70,8 @@ namespace PixelCrew.Creatures.Hero
         {
             get
             {
-                if (SelectedItemId == "HealPotion" || SelectedItemId == "BigHealthPotion" || SelectedItemId == "SpeedPotion")
+                var isPotionIndex = Array.Exists(PotionsId, x => x == SelectedItemId);
+                if (isPotionIndex)
                 {
                     var def = DefinitionFacade.I.Items.Get(SelectedItemId);
                     return def.HasTag(ItemTag.Usable);
@@ -246,7 +251,7 @@ namespace PixelCrew.Creatures.Hero
                 _particles.Spawn("Heal");
                 usableDefinition.Function.Use();
                 Debug.Log($"Used{usableId}");
-                _session.Data.Invetory.Remove(usableId,1);
+                _session.Data.Invetory.Remove(usableId, 1);
             }
             else
             {
