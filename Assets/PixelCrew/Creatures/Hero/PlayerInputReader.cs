@@ -1,4 +1,5 @@
 ﻿using PixelCrew.UI.PauseMenu;
+using PixelCrew.UI.Settings;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -69,7 +70,13 @@ namespace PixelCrew.Creatures.Hero
         public void OnPauseGame(InputAction.CallbackContext context)
         {
             if (context.performed)
-                _pause.PauseGame();
+            {
+                var optionWindow = FindObjectOfType<SettingsWindow>();
+                if (optionWindow != null)
+                    optionWindow.Close();
+                else
+                    _pause.PauseGame();
+            }
         }
     }
 }

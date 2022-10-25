@@ -3,6 +3,7 @@ using PixelCrew.Components.ColliderBased;
 using PixelCrew.Components.GameObjectBased;
 using PixelCrew.Creatures.Mobs.Patrolling;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace PixelCrew.Creatures.Mobs
 {
@@ -14,6 +15,9 @@ namespace PixelCrew.Creatures.Mobs
         [SerializeField] private float _alarmDelay = 0.5f;
         [SerializeField] private float _attackCooldown = 1f;
         [SerializeField] private float _missCooldown = 1f;
+
+        [SerializeField] private float _horizontalThreshold;
+
         private IEnumerator _current;
         private GameObject _target;
 
@@ -32,9 +36,7 @@ namespace PixelCrew.Creatures.Mobs
             Animator = GetComponent<Animator>();
             Patrol = GetComponent<Patrol>();
         }
-        
-        
-        
+
         private void Start()
         {
             StartState(Patrol.DoPatrol());
@@ -47,7 +49,6 @@ namespace PixelCrew.Creatures.Mobs
             _target = go;
 
             StartState(AgroToHero());
-
         }
 
         private IEnumerator AgroToHero()
@@ -76,8 +77,13 @@ namespace PixelCrew.Creatures.Mobs
                 }
                 else
                 {
-                    SetDirectionToTarget();
+                    var horizontalDelta = Mathf.Abs(_target.transform.position.x - transform.position.x);
+                    if (horizontalDelta <= _horizontalThreshold)
+                        Creature.SetDirection(Vector2.zero);
+                    else
+                        SetDirectionToTarget();
                 }
+
                 yield return null;
             }
 
@@ -90,7 +96,7 @@ namespace PixelCrew.Creatures.Mobs
 
         private IEnumerator Attack()
         {
-            while(_canAttack.IsTouchingLayer)
+            while (_canAttack.IsTouchingLayer)
             {
                 Creature.Attack();
                 yield return new WaitForSeconds(_attackCooldown);
@@ -119,7 +125,7 @@ namespace PixelCrew.Creatures.Mobs
             if (_current != null)
                 StopCoroutine(_current);
 
-            _current = coroutine; 
+            _current = coroutine;
             StartCoroutine(coroutine);
         }
 

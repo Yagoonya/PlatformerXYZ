@@ -1,5 +1,7 @@
 ﻿using System;
 using PixelCrew.Components.LevelManegement;
+using PixelCrew.Model;
+using PixelCrew.Utils;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -9,7 +11,15 @@ namespace PixelCrew.UI.PauseMenu
     {
         private Action _closeAction;
 
-        
+        private float defaultTimeScale;
+
+        protected override void Start()
+        {
+            base.Start();
+
+            defaultTimeScale = Time.timeScale;
+            Time.timeScale = 0;
+        }
 
         public void OnRestartLevel()
         {
@@ -23,14 +33,18 @@ namespace PixelCrew.UI.PauseMenu
 
         public void OnShowSettings()
         {
-            var window = Resources.Load<GameObject>("UI/SettingsWindow");
-            var canvas = FindObjectOfType<Canvas>();
-            Instantiate(window, canvas.transform);
+            WindowUtils.CreateWindow("UI/SettingsWindow");
         }
 
         public void OnExit()
         {
-            _closeAction = () => { SceneManager.LoadScene("MainMenu"); };
+            _closeAction = () =>
+            {
+                SceneManager.LoadScene("MainMenu");
+
+                var session = FindObjectOfType<GameSession>();
+                Destroy(session.gameObject);
+            };
             Close();
         }
 
@@ -40,10 +54,9 @@ namespace PixelCrew.UI.PauseMenu
             _closeAction?.Invoke();
         }
 
-        public override void Close()
+        private void OnDestroy()
         {
-            Time.timeScale = 1f;
-            base.Close();
+            Time.timeScale = defaultTimeScale;
         }
     }
 }

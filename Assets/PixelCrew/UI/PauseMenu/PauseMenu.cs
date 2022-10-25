@@ -1,10 +1,10 @@
-﻿using UnityEngine;
+﻿using PixelCrew.Utils;
+using UnityEngine;
 
 namespace PixelCrew.UI.PauseMenu
 {
     public class PauseMenu : MonoBehaviour
     {
-        public const string PauseCanvas = "PauseCanvas";
         private void OnEnable()
         {
             OnShowPauseWindow();
@@ -19,9 +19,7 @@ namespace PixelCrew.UI.PauseMenu
 
         private void OnShowPauseWindow()
         {
-            var window = Resources.Load<GameObject>("UI/PauseMenu");
-            var canvas = GameObject.FindWithTag(PauseCanvas).GetComponent<Canvas>();
-            Instantiate(window, canvas.transform);
+            WindowUtils.CreateWindow("UI/PauseMenu");
         }
     }
 }
