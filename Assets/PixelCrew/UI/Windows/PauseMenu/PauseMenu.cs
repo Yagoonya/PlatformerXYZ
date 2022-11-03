@@ -1,7 +1,7 @@
 ﻿using PixelCrew.Utils;
 using UnityEngine;
 
-namespace PixelCrew.UI.PauseMenu
+namespace PixelCrew.UI.Windows.PauseMenu
 {
     public class PauseMenu : MonoBehaviour
     {

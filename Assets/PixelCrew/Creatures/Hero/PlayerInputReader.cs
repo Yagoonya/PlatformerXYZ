@@ -1,5 +1,5 @@
-﻿using PixelCrew.UI.PauseMenu;
-using PixelCrew.UI.Settings;
+﻿using PixelCrew.UI.Settings;
+using PixelCrew.UI.Windows.PauseMenu;
 using UnityEngine;
 using UnityEngine.InputSystem;
 

@@ -3,7 +3,7 @@ using PixelCrew.Utils;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-namespace PixelCrew.UI.MainMenu
+namespace PixelCrew.UI.Windows.MainMenu
 {
     public class MainMenuWindow : AnimatedWindow
     {
@@ -12,6 +12,11 @@ namespace PixelCrew.UI.MainMenu
         public void OnShowSettings()
         {
             WindowUtils.CreateWindow("UI/SettingsWindow");
+        }
+
+        public void OnShowLocales()
+        {
+            WindowUtils.CreateWindow("UI/LocalizationWindow");
         }
 
         public void OnStartGame()

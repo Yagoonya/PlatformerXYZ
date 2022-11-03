@@ -1,10 +1,10 @@
 ﻿using UnityEngine;
 
-namespace PixelCrew.UI.PauseMenu
+namespace PixelCrew.UI.Windows.PauseMenu
 {
     public class PauseMenuController : MonoBehaviour
     {
-        [SerializeField] private PauseMenu _pauseMenu;
+        [SerializeField] private Windows.PauseMenu.PauseMenu _pauseMenu;
 
         private bool _isActive = false;
         
