@@ -48,7 +48,7 @@ namespace PixelCrew.UI.Windows.PauseMenu
             Close();
         }
 
-        public override void OnCloseAnimationComplete()
+        protected override void OnCloseAnimationComplete()
         {
             base.OnCloseAnimationComplete();
             _closeAction?.Invoke();

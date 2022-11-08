@@ -17,6 +17,7 @@ GameObject:
   - component: {fileID: 7770157752997151094}
   - component: {fileID: -5564855787183212099}
   - component: {fileID: 5141474963618913404}
+  - component: {fileID: 1375713529}
   m_Layer: 0
   m_Name: HealthPotion
   m_TagString: Untagged
@@ -191,6 +192,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _objectToDestroy: {fileID: 8635190227838938654}
+  _state: {fileID: 1375713529}
 --- !u!114 &8635190227838938653
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -281,3 +283,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _healValue: 5
+--- !u!114 &1375713529
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8635190227838938654}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ef0f8d2435b74bbba68a086fa190ac52, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _id: HealthPotion1

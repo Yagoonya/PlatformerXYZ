@@ -886,6 +886,8 @@ GameObject:
   - component: {fileID: 2133749626}
   - component: {fileID: 1189051385}
   - component: {fileID: 9154590754412566211}
+  - component: {fileID: 8786362449047459957}
+  - component: {fileID: 7987068600435274862}
   m_Layer: 15
   m_Name: Sharky
   m_TagString: Enemy
@@ -1244,6 +1246,31 @@ MonoBehaviour:
     _clip: {fileID: 8300000, guid: d515775c94f19b34baad0a22881b9a86, type: 3}
   - _id: Death
     _clip: {fileID: 8300000, guid: 4b1f9713dbbab97458483a0ad8685a93, type: 3}
+--- !u!114 &8786362449047459957
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7997041186419658213}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ef0f8d2435b74bbba68a086fa190ac52, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &7987068600435274862
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7997041186419658213}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d708fd8809e2dde409672483ea993c60, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _objectToDestroy: {fileID: 7997041186419658213}
 --- !u!1 &7997041186905544089
 GameObject:
   m_ObjectHideFlags: 0

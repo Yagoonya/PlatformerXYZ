@@ -17,6 +17,7 @@ GameObject:
   - component: {fileID: 8763788909879375547}
   - component: {fileID: 2346296238561840752}
   - component: {fileID: -2223803491946475652}
+  - component: {fileID: 1706551211}
   m_Layer: 0
   m_Name: BigHealthPotion
   m_TagString: Untagged
@@ -191,6 +192,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _objectToDestroy: {fileID: 7321803065822616019}
+  _state: {fileID: 1706551211}
 --- !u!114 &7321803065822616016
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -281,3 +283,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _healValue: 10
+--- !u!114 &1706551211
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7321803065822616019}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ef0f8d2435b74bbba68a086fa190ac52, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _id: BigHealthPotion1

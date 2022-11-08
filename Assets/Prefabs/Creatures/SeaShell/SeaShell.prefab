@@ -90,6 +90,7 @@ GameObject:
   - component: {fileID: 178267482}
   - component: {fileID: 178267483}
   - component: {fileID: 475152000}
+  - component: {fileID: 7216822156898662222}
   m_Layer: 15
   m_Name: SeaShell
   m_TagString: Enemy
@@ -310,14 +311,26 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2cd2a8ba0db2424b8cd8d27ed3245459, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _rangeAttack: {fileID: 3293266595890271840}
   _rangeCooldown:
     _value: 2
-  _rangeAttack: {fileID: 3293266595890271840}
   _vision: {fileID: 3293266595452414221}
   _meleeCooldown:
     _value: 1
   _melleAttack: {fileID: 3293266595804308128}
   _canMeleeAttack: {fileID: 3293266595804308141}
+--- !u!114 &7216822156898662222
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3293266595557090082}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ef0f8d2435b74bbba68a086fa190ac52, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &3293266595804308143
 GameObject:
   m_ObjectHideFlags: 0

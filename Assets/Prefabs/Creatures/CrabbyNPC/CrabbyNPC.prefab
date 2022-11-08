@@ -17,6 +17,7 @@ GameObject:
   - component: {fileID: 3741318373628732412}
   - component: {fileID: 3741318373628732408}
   - component: {fileID: 3741318373628732391}
+  - component: {fileID: 476352901513062772}
   m_Layer: 9
   m_Name: CrabbyNPC
   m_TagString: Interactable
@@ -241,7 +242,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _mode: 1
   _bound:
-    _sentences: []
+    _sentences:
+    - _sentence: 
+      _avatar: {fileID: 0}
+      _isLeftWindow: 0
+    - _sentence: 
+      _avatar: {fileID: 0}
+      _isLeftWindow: 0
   _external: {fileID: 0}
 --- !u!114 &3741318373628732412
 MonoBehaviour:
@@ -282,6 +289,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _objectToDestroy: {fileID: 3741318373628732400}
+  _state: {fileID: 476352901513062772}
 --- !u!114 &3741318373628732391
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -296,3 +304,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _target: {fileID: 3741318373628732413}
   _prefab: {fileID: 3813600686357367001, guid: 0a97b54ab1e26094db8177df14dd0eea, type: 3}
+--- !u!114 &476352901513062772
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3741318373628732400}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ef0f8d2435b74bbba68a086fa190ac52, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

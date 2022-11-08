@@ -20,7 +20,7 @@ namespace PixelCrew.UI.Windows
             _animator.SetTrigger(Hide);
         }
 
-        public virtual void OnCloseAnimationComplete()
+        protected virtual void OnCloseAnimationComplete()
         {
             Destroy(gameObject);
         }

@@ -588,6 +588,7 @@ GameObject:
   - component: {fileID: 622999447}
   - component: {fileID: 1017870644}
   - component: {fileID: 2011765477}
+  - component: {fileID: -3270618396060746064}
   m_Layer: 14
   m_Name: Player
   m_TagString: Player
@@ -966,7 +967,7 @@ MonoBehaviour:
   _onDie:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: -3270618396060746064}
         m_MethodName: Reload
         m_Mode: 1
         m_Arguments:
@@ -1039,6 +1040,18 @@ MonoBehaviour:
     _clip: {fileID: 8300000, guid: 6f27fd2faecd6d8449bb3713adcec400, type: 3}
   - _id: Heal
     _clip: {fileID: 8300000, guid: 167053ccd2cc4b142b10ef8f01a94b60, type: 3}
+--- !u!114 &-3270618396060746064
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7997041186419658213}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c4db1bdcb2153794d99fc566952940d2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &7997041186905544089
 GameObject:
   m_ObjectHideFlags: 0

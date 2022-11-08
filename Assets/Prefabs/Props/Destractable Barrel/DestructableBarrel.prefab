@@ -144,6 +144,7 @@ GameObject:
   - component: {fileID: 3513211526710420895}
   - component: {fileID: 625773784407113912}
   - component: {fileID: 1051464463001851145}
+  - component: {fileID: 91511062065886192}
   m_Layer: 11
   m_Name: DestructableBarrel
   m_TagString: Enemy
@@ -307,6 +308,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _objectToDestroy: {fileID: 3513211526710420871}
+  _state: {fileID: 91511062065886192}
 --- !u!114 &3513211526710420866
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -453,3 +455,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _clip: {fileID: 8300000, guid: 7bef0064f8567430cac22499c6b93d4f, type: 3}
+--- !u!114 &91511062065886192
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3513211526710420871}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ef0f8d2435b74bbba68a086fa190ac52, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

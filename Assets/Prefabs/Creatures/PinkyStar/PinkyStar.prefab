@@ -1197,6 +1197,8 @@ GameObject:
   - component: {fileID: 1980094347103966720}
   - component: {fileID: 7237590921186736954}
   - component: {fileID: 7461509304362597490}
+  - component: {fileID: 188950357955365394}
+  - component: {fileID: 6451622001817783195}
   m_Layer: 15
   m_Name: PinkyStar
   m_TagString: Enemy
@@ -1555,9 +1557,35 @@ MonoBehaviour:
   _alarmDelay: 0.5
   _attackCooldown: 1
   _missCooldown: 1
+  _horizontalThreshold: 0
   _prepareTime: 2
   _idleTime: 2
   _rollingSpeed: 5
   _platformChecker: {fileID: 5788241719588809252}
   _obstacleChecker: {fileID: 5444919511102001223}
   _rollCollider: {fileID: 1979738421}
+--- !u!114 &188950357955365394
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8467198066700394524}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ef0f8d2435b74bbba68a086fa190ac52, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &6451622001817783195
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8467198066700394524}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d708fd8809e2dde409672483ea993c60, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _objectToDestroy: {fileID: 8467198066700394524}

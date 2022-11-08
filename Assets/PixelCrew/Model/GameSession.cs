@@ -1,4 +1,7 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using PixelCrew.Components.LevelManegement;
 using PixelCrew.Model.Data;
 using PixelCrew.Utils.Disposables;
 using UnityEngine;
@@ -9,16 +12,20 @@ namespace PixelCrew.Model
     public class GameSession : MonoBehaviour
     {
         [SerializeField] private PlayerData _data;
+        [SerializeField] private string _defaultCheckpoint;
         public PlayerData Data => _data;
         private PlayerData _save;
         private readonly CompositeDisposable _trash = new CompositeDisposable();
         public QuickInventoryModel QuickInventory { get; private set; }
 
+        private readonly List<string> _checkPoints = new List<string>();
+
         private void Awake()
         {
-            LoadHud();
-            if (IsSessionExit())
+            var existSession = GetSession();
+            if (existSession != null)
             {
+                existSession.StartSession(_defaultCheckpoint);
                 Destroy(gameObject);
             }
             else
@@ -26,9 +33,32 @@ namespace PixelCrew.Model
                 Save();
                 InitModels();
                 DontDestroyOnLoad(this);
+                StartSession(_defaultCheckpoint);
             }
         }
-        
+
+        private void StartSession(string defaultCheckpoint)
+        {
+            SetChecked(defaultCheckpoint);
+
+            LoadHud();
+            SpawnHero();
+        }
+
+        private void SpawnHero()
+        {
+            var checkPoints = FindObjectsOfType<CheckPointComponent>();
+            var lastCheckPoint = _checkPoints.Last();
+            foreach (var checkPoint in checkPoints)
+            {
+                if (checkPoint.ID == lastCheckPoint)
+                {
+                    checkPoint.SpawnHero();
+                    break;
+                }
+            }
+        }
+
         private void InitModels()
         {
             QuickInventory = new QuickInventoryModel(_data);
@@ -48,28 +78,56 @@ namespace PixelCrew.Model
         public void LoadLastSave()
         {
             _data = _save.Clone();
-            
+
             _trash.Dispose();
             InitModels();
         }
 
-        private bool IsSessionExit()
+        private GameSession GetSession()
         {
             var sessions = FindObjectsOfType<GameSession>();
             foreach (var gameSession in sessions)
             {
                 if (gameSession != this)
                 {
-                    return true;
+                    return gameSession;
                 }
-
             }
-            return false;
+
+            return null;
+        }
+
+        public bool IsChecked(string id)
+        {
+            return _checkPoints.Contains(id);
         }
 
         private void OnDestroy()
         {
             _trash.Dispose();
+        }
+
+
+        public void SetChecked(string id)
+        {
+            if (!_checkPoints.Contains(id))
+            {
+                Save();
+                _checkPoints.Add(id);
+            }
+        }
+
+        private List<string> _removedItems = new List<string>();
+
+        public void StoreState(string Id)
+        {
+            if (!_removedItems.Contains(Id))
+                _removedItems.Add(Id);
+        }
+
+        public bool RestoreState(string Id)
+        {
+            return _removedItems.Contains(Id);
         }
     }
 }
