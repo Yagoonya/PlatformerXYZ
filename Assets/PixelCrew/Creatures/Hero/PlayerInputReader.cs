@@ -48,23 +48,20 @@ namespace PixelCrew.Creatures.Hero
 
         public void OnUseItem(InputAction.CallbackContext context)
         {
-            if (context.performed)
+            if (context.canceled && context.duration < 1)
             {
-                _hero.UsePotion();
+                _hero.UseInventoryItem(false);
+            }
+
+            if (context.canceled && context.duration > 1)
+            {
+                _hero.UseInventoryItem(true);
             }
         }
 
         public void OnThrow(InputAction.CallbackContext context)
         {
-            if (context.canceled && context.duration < 1)
-            {
-                _hero.Throw();
-            }
 
-            if (context.canceled && context.duration > 1)
-            {
-                _hero.HoldingThrow();
-            }
         }
 
         public void OnPauseGame(InputAction.CallbackContext context)

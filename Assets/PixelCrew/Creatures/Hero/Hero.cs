@@ -9,6 +9,8 @@ using PixelCrew.Components.Health;
 using PixelCrew.Model;
 using PixelCrew.Model.Data;
 using PixelCrew.Model.Definitions;
+using PixelCrew.Model.Definitions.Repository;
+using PixelCrew.Model.Definitions.Repository.Items;
 using PixelCrew.Utils;
 using UnityEditor.Animations;
 using UnityEngine;
@@ -46,11 +48,8 @@ namespace PixelCrew.Creatures.Hero
 
         private const string SwordId = "Sword";
 
-        private string[] PotionsId = {"HealPotion", "BigHealthPotion", "SpeedPotion"};
-
         private int CoinsCount => _session.Data.Invetory.Count("Coin");
         private int SwordCount => _session.Data.Invetory.Count(SwordId);
-        private int HealthPotionCount => _session.Data.Invetory.Count("HealPotion");
 
         private string SelectedItemId => _session.QuickInventory.SelectedItem.Id;
 
@@ -65,21 +64,7 @@ namespace PixelCrew.Creatures.Hero
                 return def.HasTag(ItemTag.Throwable);
             }
         }
-
-        private bool CanUse
-        {
-            get
-            {
-                var isPotionIndex = Array.Exists(PotionsId, x => x == SelectedItemId);
-                if (isPotionIndex)
-                {
-                    var def = DefinitionFacade.I.Items.Get(SelectedItemId);
-                    return def.HasTag(ItemTag.Usable);
-                }
-
-                return false;
-            }
-        }
+        
 
         protected override void Awake()
         {
@@ -228,7 +213,27 @@ namespace PixelCrew.Creatures.Hero
             _session.Data.Invetory.Remove(throwableId, 1);
         }
 
-        public void Throw()
+        public void Throw(bool isHolding)
+        {
+            if(!isHolding)
+                SingleThrow();
+            else
+                MultiThrow();
+        }
+
+        public void UseInventoryItem(bool isHolding)
+        {
+            if (IsSelectedItem(ItemTag.Throwable))
+            {
+                Throw(isHolding);
+            }
+            else if(IsSelectedItem(ItemTag.Potion))
+            {
+                UsePotion();
+            }
+        }
+
+        private void SingleThrow()
         {
             if (_throwCooldown.IsReady && CanThrow)
             {
@@ -241,25 +246,44 @@ namespace PixelCrew.Creatures.Hero
             }
         }
 
-        public void UsePotion()
+        private void UsePotion()
         {
-            if (CanUse)
+            var potion = DefinitionFacade.I.Potions.Get(SelectedItemId);
+            switch (potion.Effect)
             {
-                var usableId = _session.QuickInventory.SelectedItem.Id;
-                var usableDefinition = DefinitionFacade.I.Usable.Get(usableId);
-                Sounds.Play("Heal");
-                _particles.Spawn("Heal");
-                usableDefinition.Function.Use();
-                Debug.Log($"Used{usableId}");
-                _session.Data.Invetory.Remove(usableId, 1);
+                case Effect.AddHp:
+                    _session.Data.Hp.Value += (int)potion.Value;
+                    break;
+                case Effect.SpeedUp:
+                    _speedUpCooldown.Value = _speedUpCooldown.TimeLasts + potion.Time;
+                    _additionalSpeed = Mathf.Max(potion.Value, _additionalSpeed);
+                    _speedUpCooldown.Reset();
+                    break;
             }
-            else
-            {
-                Debug.Log("Зелье не выбрано!");
-            }
+            
+            Sounds.Play("Heal");
+            _particles.Spawn("Heal");
+
+            _session.Data.Invetory.Remove(potion.Id, 1);
         }
 
-        public void HoldingThrow()
+        private Cooldown _speedUpCooldown = new Cooldown();
+        private float _additionalSpeed;
+
+        protected override float CalculateSpeed()
+        {
+            if (_speedUpCooldown.IsReady)
+                _additionalSpeed = 0f;
+            
+            return base.CalculateSpeed() + _additionalSpeed;
+        }
+
+        private bool IsSelectedItem(ItemTag tag)
+        {
+            return _session.QuickInventory.SelectedDef.HasTag(tag);
+        }
+        
+        private void MultiThrow()
         {
             StartCoroutine(MultiThrowing(_numberOfThrows, _timeBetweenThrows));
         }
@@ -268,7 +292,7 @@ namespace PixelCrew.Creatures.Hero
         {
             for (var i = 0; i < amount; i++)
             {
-                Throw();
+                SingleThrow();
                 yield return new WaitForSeconds(cooldown);
             }
         }

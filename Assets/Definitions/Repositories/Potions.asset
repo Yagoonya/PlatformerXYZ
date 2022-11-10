@@ -10,15 +10,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: bbaefa0e83774e7fb1fb899bba037e1a, type: 3}
-  m_Name: UsableItems
+  m_Name: Potions
   m_EditorClassIdentifier: 
-  _items:
+  _collection:
   - _id: HealPotion
-    _function: {fileID: 5141474963618913404, guid: 6e9775d850a348a4282b619d14e869f6,
-      type: 3}
+    _effect: 0
+    _value: 5
+    _time: 0
   - _id: BigHealthPotion
-    _function: {fileID: -2223803491946475652, guid: 2f2c74cf5642c354c891e4a94873af21,
-      type: 3}
+    _effect: 0
+    _value: 10
+    _time: 0
   - _id: SpeedPotion
-    _function: {fileID: 1918059595461799403, guid: 1f6b036c105009b4485aa3b03a33c953,
-      type: 3}
+    _effect: 1
+    _value: 5
+    _time: 5

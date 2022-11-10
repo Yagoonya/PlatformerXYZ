@@ -67,7 +67,7 @@
                     "id": "07a7e5a2-cac2-4418-88d3-842f91bc807b",
                     "expectedControlType": "Button",
                     "processors": "",
-                    "interactions": ""
+                    "interactions": "Hold(duration=1)"
                 }
             ],
             "bindings": [

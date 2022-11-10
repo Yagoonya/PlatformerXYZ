@@ -113,16 +113,22 @@ namespace PixelCrew.Model
             if (!_checkPoints.Contains(id))
             {
                 Save();
+                foreach (var temp in _temporaryItems)
+                {
+                    _removedItems.Add(temp);
+                }
+                _temporaryItems.Clear();
                 _checkPoints.Add(id);
             }
         }
 
         private List<string> _removedItems = new List<string>();
+        private List<string> _temporaryItems = new List<string>();
 
         public void StoreState(string Id)
         {
-            if (!_removedItems.Contains(Id))
-                _removedItems.Add(Id);
+            if (!_temporaryItems.Contains(Id))
+                _temporaryItems.Add(Id);
         }
 
         public bool RestoreState(string Id)

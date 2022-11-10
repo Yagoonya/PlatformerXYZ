@@ -16,7 +16,6 @@ GameObject:
   - component: {fileID: 1918059595461799415}
   - component: {fileID: 476589388476744348}
   - component: {fileID: 6885339646934317655}
-  - component: {fileID: 1918059595461799403}
   - component: {fileID: 731884036}
   m_Layer: 0
   m_Name: SpeedPotion
@@ -192,7 +191,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _objectToDestroy: {fileID: 1918059595461799412}
-  _state: {fileID: 731884036}
 --- !u!114 &1918059595461799415
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -270,19 +268,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _clip: {fileID: 8300000, guid: 29bde6326b4c34ad8a12da475f79b50a, type: 3}
---- !u!114 &1918059595461799403
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1918059595461799412}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f33994d7e0944355bb00862af2c42b4d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _speedDelta: 5
 --- !u!114 &731884036
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -295,4 +280,3 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ef0f8d2435b74bbba68a086fa190ac52, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _id: SpeedPotion1

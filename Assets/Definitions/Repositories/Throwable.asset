@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c6e1abd97f4b4ac99e65d8d7e43406a8, type: 3}
-  m_Name: ThrowableItems
+  m_Name: Throwable
   m_EditorClassIdentifier: 
-  _items:
+  _collection:
   - _id: Sword
     _projectile: {fileID: 934578296801886129, guid: 5ed5a262b131d9e4aa7d7cf37a09933c,
       type: 3}

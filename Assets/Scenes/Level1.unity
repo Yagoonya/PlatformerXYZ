@@ -3223,7 +3223,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _data:
     _inventory:
-      _inventory: []
+      _inventory:
+      - Id: HealPotion
+        Value: 1
+      - Id: Sword
+        Value: 5
+      - Id: PearlProjectile
+        Value: 5
     Hp:
       _value: 10
   _defaultCheckpoint: level1-checkpoint1
@@ -27419,6 +27425,11 @@ PrefabInstance:
     - target: {fileID: 603293583240776448, guid: 12509be478ead0345834302051e0cdc8,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 603293583240776452, guid: 12509be478ead0345834302051e0cdc8,
+        type: 3}
+      propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 603293583240776575, guid: 12509be478ead0345834302051e0cdc8,
