@@ -43,7 +43,7 @@
                     "id": "fbe56100-3676-457d-af68-f19668e8a618",
                     "expectedControlType": "Button",
                     "processors": "",
-                    "interactions": "Hold(duration=1)"
+                    "interactions": ""
                 },
                 {
                     "name": "NextItem",
@@ -151,7 +151,7 @@
                 {
                     "name": "",
                     "id": "bf636947-bf2b-485f-bf77-3ec32424b7f5",
-                    "path": "<Keyboard>/leftShift",
+                    "path": "<Keyboard>/r",
                     "interactions": "",
                     "processors": "",
                     "groups": "",

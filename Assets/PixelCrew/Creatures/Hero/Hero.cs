@@ -23,19 +23,26 @@ namespace PixelCrew.Creatures.Hero
         [SerializeField] private ColliderCheck _wallCheck;
         [SerializeField] private float _fallDownVelocity;
 
-        [Space] [Header("ThrowParameters")]
-        [SerializeField] private Cooldown _throwCooldown;
+        [Space] [Header("ThrowParameters")] [SerializeField]
+        private Cooldown _throwCooldown;
+
         [SerializeField] private Cooldown _attackCooldown;
         [SerializeField] private int _numberOfThrows = 3;
         [SerializeField] private float _timeBetweenThrows = 0.2f;
         [SerializeField] private SpawnComponent _throwSpawner;
-        
-        [Space] [Header("Animators")]
-        [SerializeField] private AnimatorController _armed;
+
+        [Space] [Header("Animators")] [SerializeField]
+        private AnimatorController _armed;
+
         [SerializeField] private AnimatorController _disarmed;
 
-        [Space] [Header("DropsAfterHit")] 
-        [SerializeField] private ProbabilityDropComponent _hitDrop;
+        [Space] [Header("DropsAfterHit")] [SerializeField]
+        private ProbabilityDropComponent _hitDrop;
+
+        [Space] [Header("Perks")] [SerializeField]
+        private GameObject _forceShield;
+
+        [SerializeField] private Cooldown _perkCooldown;
 
         private static readonly int ThrowKey = Animator.StringToHash("throw");
         private static readonly int IsClimbing = Animator.StringToHash("is-climbing");
@@ -45,6 +52,7 @@ namespace PixelCrew.Creatures.Hero
 
         private GameSession _session;
         private float _defaultGravityScale;
+        private HealthComponent _health;
 
         private const string SwordId = "Sword";
 
@@ -53,23 +61,26 @@ namespace PixelCrew.Creatures.Hero
 
         private string SelectedItemId => _session.QuickInventory.SelectedItem.Id;
 
+        public Cooldown PerkCooldown => _perkCooldown;
+
         private bool CanThrow
         {
             get
             {
                 if (SelectedItemId == SwordId)
                     return SwordCount > 1;
-                
+
                 var def = DefinitionFacade.I.Items.Get(SelectedItemId);
                 return def.HasTag(ItemTag.Throwable);
             }
         }
-        
+
 
         protected override void Awake()
         {
             base.Awake();
             _defaultGravityScale = RigidBody.gravityScale;
+            _health = GetComponent<HealthComponent>();
         }
 
         public void OnHealthChanged(int currentHealth)
@@ -91,11 +102,30 @@ namespace PixelCrew.Creatures.Hero
         {
             _session.Data.Invetory.OnChanged -= OnInventoryChanged;
         }
-        
+
         private void OnInventoryChanged(string id, int value)
         {
-            if(id == SwordId)
+            if (id == SwordId)
                 UpdateHeroWeapon();
+        }
+
+        public void SetImmune()
+        {
+            if (!_session.PerksModel.IsForceShieldSupported) return;
+            if (_perkCooldown.IsReady)
+            {
+                _perkCooldown.Reset();
+                StartCoroutine(ImmuneDuration());
+            }
+        }
+
+        private IEnumerator ImmuneDuration()
+        {
+            _forceShield.SetActive(true);
+            _health.isImmune = true;
+            yield return new WaitForSeconds(2f);
+            _forceShield.SetActive(false);
+            _health.isImmune = false;
         }
 
         protected override void Update()
@@ -136,11 +166,16 @@ namespace PixelCrew.Creatures.Hero
 
         protected override float CalculateJumpVelocity(float yVelocity)
         {
-            if (!IsGrounded && _allowDoubleJump && !_isOnWall)
+            if (!IsGrounded && _allowDoubleJump &&
+                _session.PerksModel.IsDoubleJumpSupported && !_isOnWall)
             {
-                _allowDoubleJump = false;
-                DoJumpVfx();
-                return _jumpForce;
+                if (_perkCooldown.IsReady)
+                {
+                    _allowDoubleJump = false;
+                    DoJumpVfx();
+                    _perkCooldown.Reset();
+                    return _jumpForce;
+                }
             }
 
             return base.CalculateJumpVelocity(yVelocity);
@@ -181,7 +216,7 @@ namespace PixelCrew.Creatures.Hero
         {
             var numCoinsToDispose = Mathf.Min(CoinsCount, 5);
             _session.Data.Invetory.Remove("Coin", numCoinsToDispose);
-            
+
             _hitDrop.SetCount(numCoinsToDispose);
             _hitDrop.CalculateDrop();
         }
@@ -209,16 +244,19 @@ namespace PixelCrew.Creatures.Hero
             var throwableDefinition = DefinitionFacade.I.Throwable.Get(throwableId);
             _throwSpawner.SetPrefab(throwableDefinition.Projectile);
             _throwSpawner.Spawn();
-            
+
             _session.Data.Invetory.Remove(throwableId, 1);
         }
 
-        public void Throw(bool isHolding)
+        private void Throw(bool isHolding)
         {
-            if(!isHolding)
+            if (!isHolding)
                 SingleThrow();
-            else
+            else if (_session.PerksModel.IsSuperThrowSupported && _perkCooldown.IsReady)
+            {
                 MultiThrow();
+                _perkCooldown.Reset();
+            }
         }
 
         public void UseInventoryItem(bool isHolding)
@@ -227,7 +265,7 @@ namespace PixelCrew.Creatures.Hero
             {
                 Throw(isHolding);
             }
-            else if(IsSelectedItem(ItemTag.Potion))
+            else if (IsSelectedItem(ItemTag.Potion))
             {
                 UsePotion();
             }
@@ -260,7 +298,7 @@ namespace PixelCrew.Creatures.Hero
                     _speedUpCooldown.Reset();
                     break;
             }
-            
+
             Sounds.Play("Heal");
             _particles.Spawn("Heal");
 
@@ -274,7 +312,7 @@ namespace PixelCrew.Creatures.Hero
         {
             if (_speedUpCooldown.IsReady)
                 _additionalSpeed = 0f;
-            
+
             return base.CalculateSpeed() + _additionalSpeed;
         }
 
@@ -282,7 +320,7 @@ namespace PixelCrew.Creatures.Hero
         {
             return _session.QuickInventory.SelectedDef.HasTag(tag);
         }
-        
+
         private void MultiThrow()
         {
             StartCoroutine(MultiThrowing(_numberOfThrows, _timeBetweenThrows));

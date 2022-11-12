@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace PixelCrew.Model.Definitions.Repository
 {
-    [CreateAssetMenu(menuName = "Defs/Throwable", fileName = "Throwable")]
+    [CreateAssetMenu(menuName = "Defs/Repository/Throwable", fileName = "Throwable")]
     public class ThrowableRepository : DefRepository<ThrowableDefinition>
     {
     }

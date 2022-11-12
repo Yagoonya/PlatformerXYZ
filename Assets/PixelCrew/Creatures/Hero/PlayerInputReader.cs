@@ -61,7 +61,11 @@ namespace PixelCrew.Creatures.Hero
 
         public void OnThrow(InputAction.CallbackContext context)
         {
-
+            if (context.performed)
+            {
+                Debug.Log("throw");
+                _hero.SetImmune();
+            }
         }
 
         public void OnPauseGame(InputAction.CallbackContext context)

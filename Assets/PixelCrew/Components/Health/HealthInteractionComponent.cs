@@ -11,7 +11,8 @@ namespace PixelCrew.Components.Health
             var healthComponent = target.GetComponent<HealthComponent>();
             if (healthComponent != null)
             {
-                healthComponent.ApplyChange(_changingValue);
+                if (!healthComponent.isImmune)
+                    healthComponent.ApplyChange(_changingValue);
             }
         }
     }

@@ -3223,15 +3223,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _data:
     _inventory:
-      _inventory:
-      - Id: HealPotion
-        Value: 1
-      - Id: Sword
-        Value: 5
-      - Id: PearlProjectile
-        Value: 5
+      _inventory: []
     Hp:
       _value: 10
+    Perks:
+      _used:
+        _value: 
+      _unlocked: []
   _defaultCheckpoint: level1-checkpoint1
 --- !u!4 &789609676
 Transform:
@@ -3245,7 +3243,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &804288810 stripped
 GameObject:
@@ -17390,7 +17388,7 @@ Transform:
   - {fileID: 2076562515}
   - {fileID: 1083092206}
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &1484418035 stripped
 Transform:
@@ -26035,36 +26033,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 448300797302325246}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &1751990664
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1751990665}
-  m_Layer: 0
-  m_Name: '###UI###'
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1751990665
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1751990664}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -6.2288313, y: -7.7206464, z: -684.7949}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 6
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &1784374549 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 387318934341722548, guid: 3ff86f21c74845f45897b07ce5fa1319,
@@ -27986,6 +27954,11 @@ PrefabInstance:
       propertyPath: _state
       value: 
       objectReference: {fileID: 804288811}
+    - target: {fileID: 6204833590267160134, guid: b4d1d4cbd9870f44c9e8583816b30448,
+        type: 3}
+      propertyPath: _count
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 6204833590267160135, guid: b4d1d4cbd9870f44c9e8583816b30448,
         type: 3}
       propertyPath: m_RootOrder

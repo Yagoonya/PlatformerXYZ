@@ -15,6 +15,8 @@ namespace PixelCrew.Components.Health
         public int Health => _health;
         public int MaxHealth => _maxHealth;
 
+        public bool isImmune = false;
+
         private void Awake()
         {
             _maxHealth = _health;
