@@ -30,7 +30,6 @@ namespace PixelCrew.Components.Health
             {
                 _health += changingValue;
                 _onChange?.Invoke(_health);
-                Debug.Log($"Всего здоровья {_health} у {gameObject.name}");
             }
 
             if (changingValue < 0)

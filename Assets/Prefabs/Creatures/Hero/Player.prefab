@@ -134,6 +134,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _changingValue: -1
+  _canCrit: 1
 --- !u!1 &828096125
 GameObject:
   m_ObjectHideFlags: 0
