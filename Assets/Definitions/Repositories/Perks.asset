@@ -31,3 +31,10 @@ MonoBehaviour:
     _price:
       _itemId: GreenDiamond
       _count: 50
+  - _id: doppelganger
+    _icon: {fileID: 21300000, guid: 78c66ea5a97dc044388b9a717c9ba6e6, type: 3}
+    _info: This perk allows you to create your own clone that will help in solving
+      puzzles!
+    _price:
+      _itemId: GreenDiamond
+      _count: 100

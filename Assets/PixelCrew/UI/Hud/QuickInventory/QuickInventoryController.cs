@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using PixelCrew.Model;
+﻿using PixelCrew.Model;
 using PixelCrew.Model.Data;
 using PixelCrew.UI.Widget;
 using PixelCrew.Utils.Disposables;
@@ -16,7 +14,6 @@ namespace PixelCrew.UI.Hud.QuickInventory
         private readonly CompositeDisposable _trash = new CompositeDisposable();
 
         private GameSession _session;
-        private  List<InventoryItemWidget> _createdItem = new List<InventoryItemWidget>();
 
         private DataGroup<InventoryItemData, InventoryItemWidget> _dataGroup;
 

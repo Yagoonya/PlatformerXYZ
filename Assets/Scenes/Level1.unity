@@ -17023,10 +17023,10 @@ MonoBehaviour:
     _sentences:
     - _sentence: .... I NEED A KEY!...
       _avatar: {fileID: 21300000, guid: 1d3af48501957d24ab98cdd924dc6d3f, type: 3}
-      _isLeftWindow: 1
+      _side: 0
     - _sentence: Ok...
       _avatar: {fileID: 21300000, guid: fb1f99aecec89a74cb30cb086fc44059, type: 3}
-      _isLeftWindow: 0
+      _side: 0
   _external: {fileID: 0}
 --- !u!58 &1387042764 stripped
 CircleCollider2D:

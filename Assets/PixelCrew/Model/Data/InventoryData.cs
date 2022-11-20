@@ -4,7 +4,6 @@ using System.Linq;
 using PixelCrew.Model.Definitions;
 using PixelCrew.Model.Definitions.Repository;
 using PixelCrew.Model.Definitions.Repository.Items;
-using PixelCrew.Utils.Disposables;
 using UnityEngine;
 
 namespace PixelCrew.Model.Data
@@ -33,6 +32,7 @@ namespace PixelCrew.Model.Data
             {
                 AddNonStack(id, value);
             }
+            Debug.Log($"Добавил {id} : {value}");
 
             OnChanged?.Invoke(id, Count(id));
         }
@@ -161,7 +161,10 @@ namespace PixelCrew.Model.Data
 
             return true;
         }
+        
     }
+
+
 
     [Serializable]
     public class InventoryItemData

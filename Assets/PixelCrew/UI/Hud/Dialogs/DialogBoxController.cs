@@ -41,7 +41,7 @@ namespace PixelCrew.UI.Hud.Dialogs
             _currentSentence = 0;
             _text.text = string.Empty;
 
-            if (_data.Sentences[_currentSentence].IsLeftWindow)
+            if (_data.Sentences[_currentSentence].Side == Side.Left)
             {
                 _container.SetActive(true);
                 _avatar.sprite =_data.Sentences[_currentSentence].Avatar;
@@ -113,7 +113,7 @@ namespace PixelCrew.UI.Hud.Dialogs
 
         private void OnStartDialogAnimation()
         {
-            if (_data.Sentences[_currentSentence].IsLeftWindow)
+            if (_data.Sentences[_currentSentence].Side == Side.Left)
             {
                 _avatar.sprite = _data.Sentences[_currentSentence].Avatar;
                 _typingRoutine = StartCoroutine(TypeDialogText(_text, _container));

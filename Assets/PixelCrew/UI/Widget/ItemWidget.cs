@@ -7,10 +7,10 @@ namespace PixelCrew.UI.Widget
 {
     public class ItemWidget : MonoBehaviour
     {
-        [SerializeField] private Image _icon;
-        [SerializeField] private Text _value;
+        [SerializeField] protected Image _icon;
+        [SerializeField] protected Text _value;
 
-        public void SetData(ItemWithCount price)
+        public virtual void SetData(ItemWithCount price)
         {
             var def = DefinitionFacade.I.Items.Get(price.ItemId);
             _icon.sprite = def.Icon;

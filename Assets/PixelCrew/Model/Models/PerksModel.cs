@@ -18,6 +18,7 @@ namespace PixelCrew.Model.Models
         public bool IsSuperThrowSupported => _data.Perks.Used.Value == "super-throw";
         public bool IsDoubleJumpSupported => _data.Perks.Used.Value == "double-jump";
         public bool IsForceShieldSupported => _data.Perks.Used.Value == "force-shield";
+        public bool IsDoppelgangerSupported => _data.Perks.Used.Value == "doppelganger";
 
         public PerksModel(PlayerData data)
         {

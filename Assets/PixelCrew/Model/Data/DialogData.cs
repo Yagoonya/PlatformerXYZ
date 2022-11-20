@@ -9,23 +9,25 @@ namespace PixelCrew.Model.Data
     {
         [SerializeField] private SentencesData[] _sentences;
         public SentencesData[] Sentences => _sentences;
-
-
-        public void XYZ()
-        {
-        }
+        
     }
 
 
     [Serializable]
-    public class SentencesData
+    public struct SentencesData
     {
         [SerializeField] private string _sentence;
         [SerializeField] private Sprite _avatar;
-        [SerializeField] private bool _isLeftWindow;
+        [SerializeField] private Side _side;
 
         public string Sentence => _sentence;
         public Sprite Avatar => _avatar;
-        public bool IsLeftWindow => _isLeftWindow;
+        public Side Side => _side;
+    }
+
+    public enum Side
+    {
+        Left,
+        Right
     }
 }

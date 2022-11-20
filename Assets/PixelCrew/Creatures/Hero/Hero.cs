@@ -43,6 +43,8 @@ namespace PixelCrew.Creatures.Hero
         [Space] [Header("Perks")] [SerializeField]
         private GameObject _forceShield;
 
+        [SerializeField] private DoppelgangerComponent _doppelganger;
+
         [SerializeField] private Cooldown _perkCooldown;
 
         private static readonly int ThrowKey = Animator.StringToHash("throw");
@@ -76,7 +78,6 @@ namespace PixelCrew.Creatures.Hero
             }
         }
 
-
         protected override void Awake()
         {
             base.Awake();
@@ -88,7 +89,7 @@ namespace PixelCrew.Creatures.Hero
         {
             _session.Data.Hp.Value = currentHealth;
         }
-
+        
         private void Start()
         {
             _session = FindObjectOfType<GameSession>();
@@ -124,11 +125,18 @@ namespace PixelCrew.Creatures.Hero
 
         public void SetImmune()
         {
-            if (!_session.PerksModel.IsForceShieldSupported) return;
             if (_perkCooldown.IsReady)
             {
-                _perkCooldown.Reset();
-                StartCoroutine(ImmuneDuration());
+                if (_session.PerksModel.IsForceShieldSupported)
+                {
+                    _perkCooldown.Reset();
+                    StartCoroutine(ImmuneDuration());
+                }
+                else if(_session.PerksModel.IsDoppelgangerSupported)
+                {
+                    _perkCooldown.Reset();
+                    _doppelganger.Spawn();
+                }
             }
         }
 

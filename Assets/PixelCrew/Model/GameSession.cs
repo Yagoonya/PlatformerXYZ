@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 using PixelCrew.Components.LevelManegement;
 using PixelCrew.Model.Data;
@@ -22,6 +21,8 @@ namespace PixelCrew.Model
         public QuickInventoryModel QuickInventory { get; private set; }
         public PerksModel PerksModel { get; private set; }
         public StatsModel StatsModel { get; private set; }
+        public ProductModel ProductModel { get; private set; }
+        
 
         private readonly List<string> _checkPoints = new List<string>();
 
@@ -74,6 +75,9 @@ namespace PixelCrew.Model
 
             StatsModel = new StatsModel(_data);
             _trash.Retain(StatsModel);
+
+            ProductModel = new ProductModel(_data);
+            _trash.Retain(ProductModel);
 
             _data.Hp.Value = (int)StatsModel.GetValue(StatId.Hp);
         }
