@@ -457,6 +457,7 @@ GameObject:
   - component: {fileID: 4990901264274717891}
   - component: {fileID: 6157660670647091182}
   - component: {fileID: 8589102930371731293}
+  - component: {fileID: 8875005642801736483}
   m_Layer: 14
   m_Name: ForceShieldParticles
   m_TagString: Untagged
@@ -554,6 +555,21 @@ MonoBehaviour:
     _onComplete:
       m_PersistentCalls:
         m_Calls: []
+--- !u!114 &8875005642801736483
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1094855528302136250}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 00478e44e2d7467c927d626e1648511d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _health: {fileID: 622999447}
+  _cooldown:
+    _value: 5
 --- !u!1 &1443234249444443106
 GameObject:
   m_ObjectHideFlags: 0
@@ -891,10 +907,8 @@ MonoBehaviour:
   _armed: {fileID: 9100000, guid: 970d771c3aaf23e44992c51d5886701e, type: 2}
   _disarmed: {fileID: 9100000, guid: df9ea8272e959cb44bfd1b623b10968f, type: 2}
   _hitDrop: {fileID: 3977250620880093705}
-  _forceShield: {fileID: 1094855528302136250}
+  _forceShield: {fileID: 8875005642801736483}
   _doppelganger: {fileID: 8087168983752281545}
-  _perkCooldown:
-    _value: 5
 --- !u!114 &7997041186419658208
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1168,7 +1182,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  isImmune: 0
+  _immune: 0
 --- !u!114 &1017870644
 MonoBehaviour:
   m_ObjectHideFlags: 0

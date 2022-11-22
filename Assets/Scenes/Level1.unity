@@ -17028,6 +17028,9 @@ MonoBehaviour:
       _avatar: {fileID: 21300000, guid: fb1f99aecec89a74cb30cb086fc44059, type: 3}
       _side: 0
   _external: {fileID: 0}
+  _onComplete:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!58 &1387042764 stripped
 CircleCollider2D:
   m_CorrespondingSourceObject: {fileID: 4409758221734204001, guid: 46a3802284b9b0b49a73143a37ca3fa5,
@@ -27627,6 +27630,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: CrabbyNPC
+      objectReference: {fileID: 0}
+    - target: {fileID: 3741318373628732411, guid: 6363546e21a2b86488090c3f1196ad34,
+        type: 3}
+      propertyPath: _mode
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3741318373628732413, guid: 6363546e21a2b86488090c3f1196ad34,
         type: 3}

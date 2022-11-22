@@ -64,7 +64,7 @@ namespace PixelCrew.Creatures.Hero
             if (context.performed)
             {
                 Debug.Log("throw");
-                _hero.SetImmune();
+                _hero.UsePerk();
             }
         }
 

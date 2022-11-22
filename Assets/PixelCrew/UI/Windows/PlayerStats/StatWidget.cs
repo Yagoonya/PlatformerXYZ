@@ -34,14 +34,16 @@ namespace PixelCrew.UI.Windows.PlayerStats
             
             _icon.sprite = _data.Icon;
             _name.text = LocalizationManager.I.Localize(_data.Name);
-            _currentValue.text = statsModel.GetValue(_data.ID).ToString(CultureInfo.InvariantCulture);
+            var currentLevelValue = statsModel.GetValue(_data.ID);
+            _currentValue.text = currentLevelValue.ToString(CultureInfo.InvariantCulture);
 
             var currentLevel = statsModel.GetCurrentLevel(_data.ID);
             var nextLevel = currentLevel + 1;
-            var increaseValue = statsModel.GetValue(_data.ID, nextLevel);
-            var maxLevels=DefinitionFacade.I.Player.GetStat(_data.ID).Levels.Length - 1;
+            var nextLevelValue = statsModel.GetValue(_data.ID, nextLevel);
+            var increaseValue = nextLevelValue - currentLevelValue;
             _increaseValue.text = increaseValue > 0 ? $"+ {increaseValue}" : "MAX";
 
+            var maxLevels=DefinitionFacade.I.Player.GetStat(_data.ID).Levels.Length - 1;
             _progress.SetProgress(currentLevel/ (float) maxLevels);
             
             _selector.SetActive(statsModel.InterfaceSelectedStat.Value == _data.ID);

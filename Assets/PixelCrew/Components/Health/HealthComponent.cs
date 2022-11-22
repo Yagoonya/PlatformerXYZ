@@ -11,11 +11,17 @@ namespace PixelCrew.Components.Health
         [SerializeField] public UnityEvent _onDie;
         [SerializeField] private HealthChangeEvent _onChange;
 
+        [SerializeField] private bool _immune;
+
         private int _maxHealth;
         public int Health => _health;
         public int MaxHealth => _maxHealth;
 
-        public bool isImmune = false;
+        public bool Immune
+        {
+            get => _immune;
+            set => _immune = value;
+        }
 
         private void Awake()
         {
@@ -25,6 +31,7 @@ namespace PixelCrew.Components.Health
         public void ApplyChange(int changingValue)
         {
             if (_health <= 0) return;
+            if (changingValue < 0 && Immune) return;
 
             if (_health > 0)
             {

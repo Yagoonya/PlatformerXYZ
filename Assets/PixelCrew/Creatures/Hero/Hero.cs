@@ -15,6 +15,7 @@ using PixelCrew.Model.Definitions.Repository.Items;
 using PixelCrew.Utils;
 using UnityEditor.Animations;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 namespace PixelCrew.Creatures.Hero
 {
@@ -40,12 +41,11 @@ namespace PixelCrew.Creatures.Hero
         [Space] [Header("DropsAfterHit")] [SerializeField]
         private ProbabilityDropComponent _hitDrop;
 
-        [Space] [Header("Perks")] [SerializeField]
-        private GameObject _forceShield;
+        [Space] [Header("Perks")] 
+        [SerializeField] private ForceShieldComponent _forceShield;
 
         [SerializeField] private DoppelgangerComponent _doppelganger;
 
-        [SerializeField] private Cooldown _perkCooldown;
 
         private static readonly int ThrowKey = Animator.StringToHash("throw");
         private static readonly int IsClimbing = Animator.StringToHash("is-climbing");
@@ -63,8 +63,6 @@ namespace PixelCrew.Creatures.Hero
         private int SwordCount => _session.Data.Invetory.Count(SwordId);
 
         private string SelectedItemId => _session.QuickInventory.SelectedItem.Id;
-
-        public Cooldown PerkCooldown => _perkCooldown;
 
         private bool CanThrow
         {
@@ -89,7 +87,7 @@ namespace PixelCrew.Creatures.Hero
         {
             _session.Data.Hp.Value = currentHealth;
         }
-        
+
         private void Start()
         {
             _session = FindObjectOfType<GameSession>();
@@ -123,31 +121,20 @@ namespace PixelCrew.Creatures.Hero
                 UpdateHeroWeapon();
         }
 
-        public void SetImmune()
+        public void UsePerk()
         {
-            if (_perkCooldown.IsReady)
+            if (_session.PerksModel.IsForceShieldSupported)
             {
-                if (_session.PerksModel.IsForceShieldSupported)
-                {
-                    _perkCooldown.Reset();
-                    StartCoroutine(ImmuneDuration());
-                }
-                else if(_session.PerksModel.IsDoppelgangerSupported)
-                {
-                    _perkCooldown.Reset();
-                    _doppelganger.Spawn();
-                }
+                _session.PerksModel.Cooldown.Reset();
+                _forceShield.Use();
+            }
+            else if (_session.PerksModel.IsDoppelgangerSupported)
+            {
+                _session.PerksModel.Cooldown.Reset();
+                _doppelganger.Spawn();
             }
         }
-
-        private IEnumerator ImmuneDuration()
-        {
-            _forceShield.SetActive(true);
-            _health.isImmune = true;
-            yield return new WaitForSeconds(2f);
-            _forceShield.SetActive(false);
-            _health.isImmune = false;
-        }
+        
 
         protected override void Update()
         {
@@ -190,13 +177,10 @@ namespace PixelCrew.Creatures.Hero
             if (!IsGrounded && _allowDoubleJump &&
                 _session.PerksModel.IsDoubleJumpSupported && !_isOnWall)
             {
-                if (_perkCooldown.IsReady)
-                {
-                    _allowDoubleJump = false;
+                _allowDoubleJump = false;
                     DoJumpVfx();
-                    _perkCooldown.Reset();
+                    _session.PerksModel.Cooldown.Reset();
                     return _jumpForce;
-                }
             }
 
             return base.CalculateJumpVelocity(yVelocity);
@@ -264,19 +248,39 @@ namespace PixelCrew.Creatures.Hero
             var throwableId = _session.QuickInventory.SelectedItem.Id;
             var throwableDefinition = DefinitionFacade.I.Throwable.Get(throwableId);
             _throwSpawner.SetPrefab(throwableDefinition.Projectile);
-            _throwSpawner.Spawn();
+            var instance = _throwSpawner.SpawnInstance();
+            ApplyRangeDamageStat(instance);
 
             _session.Data.Invetory.Remove(throwableId, 1);
+        }
+
+        private void ApplyRangeDamageStat(GameObject projectile)
+        {
+            var hpModify = projectile.GetComponent<HealthInteractionComponent>();
+            var damageValue = (int)_session.StatsModel.GetValue(StatId.RangeDamage);
+            damageValue = ModifyDamageByCrit(damageValue);
+            hpModify.SetDelta(-damageValue);
+        }
+
+        private int ModifyDamageByCrit(int damage)
+        {
+            var critChance = _session.StatsModel.GetValue(StatId.CriticalChance);
+            if (Random.value * 100 <= critChance)
+            {
+                return damage * 2;
+            }
+
+            return damage;
         }
 
         private void Throw(bool isHolding)
         {
             if (!isHolding)
                 SingleThrow();
-            else if (_session.PerksModel.IsSuperThrowSupported && _perkCooldown.IsReady)
+            else if (_session.PerksModel.IsSuperThrowSupported)
             {
                 MultiThrow();
-                _perkCooldown.Reset();
+                _session.PerksModel.Cooldown.Reset();;
             }
         }
 
@@ -312,9 +316,11 @@ namespace PixelCrew.Creatures.Hero
             {
                 case Effect.AddHp:
                     _session.Data.Hp.Value += (int)potion.Value;
+                    var health = _session.Data.Hp.Value;
+                    _health.SetHealth(health);
                     break;
                 case Effect.SpeedUp:
-                    _speedUpCooldown.Value = _speedUpCooldown.TimeLasts + potion.Time;
+                    _speedUpCooldown.Value = _speedUpCooldown.RemainingTime + potion.Time;
                     _additionalSpeed = Mathf.Max(potion.Value, _additionalSpeed);
                     _speedUpCooldown.Reset();
                     break;

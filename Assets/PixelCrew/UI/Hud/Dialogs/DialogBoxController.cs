@@ -2,6 +2,7 @@
 using PixelCrew.Model.Data;
 using PixelCrew.Utils;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.UI;
 
 namespace PixelCrew.UI.Hud.Dialogs
@@ -29,14 +30,16 @@ namespace PixelCrew.UI.Hud.Dialogs
         private int _currentSentence;
         private AudioSource _sfxSource;
         private Coroutine _typingRoutine;
+        private UnityEvent _onComplete;
 
         private void Start()
         {
             _sfxSource = AudioUtils.FindSfxSource();
         }
 
-        public void ShowDialog(DialogData data)
+        public void ShowDialog(DialogData data, UnityEvent onComplete)
         {
+            _onComplete = onComplete;
             _data = data;
             _currentSentence = 0;
             _text.text = string.Empty;
@@ -92,7 +95,10 @@ namespace PixelCrew.UI.Hud.Dialogs
 
                 var isDialogCompleted = _currentSentence >= _data.Sentences.Length;
                 if (isDialogCompleted)
+                {
                     HideDialogBox();
+                    _onComplete?.Invoke();
+                }
                 else
                     OnStartDialogAnimation();
             }
