@@ -1,6 +1,4 @@
-﻿using PixelCrew.Model;
-using PixelCrew.Model.Definitions.Player;
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace PixelCrew.Components.Health
 {

@@ -24,6 +24,7 @@ namespace PixelCrew.Creatures.Hero
         [SerializeField] private CheckCircleOverlap _interactionCheck;
         [SerializeField] private ColliderCheck _wallCheck;
         [SerializeField] private float _fallDownVelocity;
+        [SerializeField] private CandleComponent _candle;
 
         [Space] [Header("ThrowParameters")] [SerializeField]
         private Cooldown _throwCooldown;
@@ -74,6 +75,11 @@ namespace PixelCrew.Creatures.Hero
                 var def = DefinitionFacade.I.Items.Get(SelectedItemId);
                 return def.HasTag(ItemTag.Throwable);
             }
+        }
+
+        public void SetCandleActivity()
+        {
+            _candle.SetCandleActivity();
         }
 
         protected override void Awake()

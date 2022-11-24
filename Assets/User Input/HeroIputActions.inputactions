@@ -14,7 +14,7 @@
                     "interactions": ""
                 },
                 {
-                    "name": "SaySomething",
+                    "name": "SwitchCandleActivity",
                     "type": "Button",
                     "id": "cfe3c364-5695-46b0-a331-1c7148224d50",
                     "expectedControlType": "Button",
@@ -74,11 +74,11 @@
                 {
                     "name": "",
                     "id": "635b3a8f-7cef-44fb-9dfb-fa9768e6409d",
-                    "path": "<Mouse>/leftButton",
+                    "path": "<Keyboard>/c",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "SaySomething",
+                    "action": "SwitchCandleActivity",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },

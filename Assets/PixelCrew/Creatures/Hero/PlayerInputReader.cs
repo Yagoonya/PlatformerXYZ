@@ -79,5 +79,11 @@ namespace PixelCrew.Creatures.Hero
                     _pause.PauseGame();
             }
         }
+
+        public void OnSetCandleActivity(InputAction.CallbackContext context)
+        {
+            if(context.performed)
+                _hero.SetCandleActivity();
+        }
     }
 }

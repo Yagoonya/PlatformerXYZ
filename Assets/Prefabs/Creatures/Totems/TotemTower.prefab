@@ -167,7 +167,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1bd01355346a48c5a6d1fc8343a6a391, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _source: {fileID: 1751551246}
   _sounds:
   - _id: Hit
     _clip: {fileID: 8300000, guid: 1634638dd0e4217489fcde545c435600, type: 3}
