@@ -56,3 +56,6 @@ TagManager:
   - name: Front
     uniqueID: 2618930609
     locked: 0
+  - name: Overlay
+    uniqueID: 11671109
+    locked: 0

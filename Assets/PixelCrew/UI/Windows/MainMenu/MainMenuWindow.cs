@@ -1,4 +1,5 @@
 ﻿using System;
+using PixelCrew.UI.LevelLoader;
 using PixelCrew.Utils;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -21,7 +22,11 @@ namespace PixelCrew.UI.Windows.MainMenu
 
         public void OnStartGame()
         {
-            _closeAction = () => { SceneManager.LoadScene("Level1"); };
+            _closeAction = () =>
+            {
+                var loader = FindObjectOfType<LevelsLoader>();
+                loader.LoadLevel("Level3");
+            };
             Close();
         }
 

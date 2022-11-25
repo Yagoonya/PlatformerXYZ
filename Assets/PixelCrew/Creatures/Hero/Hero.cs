@@ -6,6 +6,7 @@ using PixelCrew.Components;
 using PixelCrew.Components.ColliderBased;
 using PixelCrew.Components.GameObjectBased;
 using PixelCrew.Components.Health;
+using PixelCrew.Effects.CameraRelated;
 using PixelCrew.Model;
 using PixelCrew.Model.Data;
 using PixelCrew.Model.Definitions;
@@ -54,6 +55,7 @@ namespace PixelCrew.Creatures.Hero
         private bool _allowDoubleJump;
         private bool _isOnWall;
 
+        private CameraShakeEffect _cameraNoise;
         private GameSession _session;
         private float _defaultGravityScale;
         private HealthComponent _health;
@@ -96,6 +98,7 @@ namespace PixelCrew.Creatures.Hero
 
         private void Start()
         {
+            _cameraNoise = FindObjectOfType<CameraShakeEffect>();
             _session = FindObjectOfType<GameSession>();
             _session.Data.Invetory.OnChanged += OnInventoryChanged;
             _session.StatsModel.OnUpgraded += OnHeroUpgraded;
@@ -217,6 +220,7 @@ namespace PixelCrew.Creatures.Hero
         public override void TakeDamage()
         {
             base.TakeDamage();
+            _cameraNoise.Shake();
             if (CoinsCount > 0)
             {
                 SpawnCoins();

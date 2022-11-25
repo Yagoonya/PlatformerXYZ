@@ -4,7 +4,7 @@ namespace PixelCrew.Utils
 {
     public static class WindowUtils
     {
-        public const string PauseCanvas = "PauseCanvas";
+        private const string PauseCanvas = "PauseCanvas";
         public static void CreateWindow(string resourcePath)
         {
             var window = Resources.Load<GameObject>(resourcePath);
