@@ -11,7 +11,7 @@ namespace PixelCrew.Creatures.Hero
         [SerializeField] private Light2D _candleLight;
 
         private int _currentCapacity;
-        private bool _isActive = true;
+        private bool _isActive;
         private bool _isAwayFromFuel = true;
         private float _defaultIntensity;
         private float _percentOfIntensity;
@@ -39,6 +39,7 @@ namespace PixelCrew.Creatures.Hero
 
         private void Start()
         {
+            _isActive = gameObject.activeSelf;
             _defaultIntensity = _candleLight.intensity;
             _percentOfIntensity = _defaultIntensity / 10f;
             SetToMax();

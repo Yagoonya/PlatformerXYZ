@@ -9,7 +9,7 @@ namespace PixelCrew.Components.Health
         [SerializeField] private int _health;
         [SerializeField] private UnityEvent _onDamage;
         [SerializeField] public UnityEvent _onDie;
-        [SerializeField] private HealthChangeEvent _onChange;
+        [SerializeField] public HealthChangeEvent _onChange;
 
         [SerializeField] private bool _immune;
 
