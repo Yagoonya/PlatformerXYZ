@@ -1,4 +1,5 @@
 ﻿using System;
+using PixelCrew.Utils;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -7,21 +8,17 @@ namespace PixelCrew.Components.Health
     public class HealthComponent : MonoBehaviour
     {
         [SerializeField] private int _health;
-        [SerializeField] private UnityEvent _onDamage;
+        [SerializeField] public UnityEvent _onDamage;
         [SerializeField] public UnityEvent _onDie;
         [SerializeField] public HealthChangeEvent _onChange;
 
-        [SerializeField] private bool _immune;
+        private Lock _immune = new Lock();
 
         private int _maxHealth;
         public int Health => _health;
         public int MaxHealth => _maxHealth;
 
-        public bool Immune
-        {
-            get => _immune;
-            set => _immune = value;
-        }
+        public Lock Immune => _immune;
 
         private void Awake()
         {
@@ -30,8 +27,8 @@ namespace PixelCrew.Components.Health
 
         public void ApplyChange(int changingValue)
         {
+            if (changingValue < 0 && Immune.IsLocked) return;
             if (_health <= 0) return;
-            if (changingValue < 0 && Immune) return;
 
             if (_health > 0)
             {
