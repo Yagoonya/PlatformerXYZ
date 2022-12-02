@@ -25,7 +25,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4042140448713345751}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.032, y: 0.246, z: 0}
+  m_LocalPosition: {x: 0.198, y: 0.13, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 6885548175447282549}
@@ -52,8 +52,8 @@ MonoBehaviour:
   m_ApplyToSortingLayers: 7d4c8c4400000000ffeb759cb1b5199c
   m_LightCookieSprite: {fileID: 0}
   m_UseNormalMap: 0
-  m_LightOrder: 0
-  m_AlphaBlendOnOverlap: 0
+  m_LightOrder: 2
+  m_AlphaBlendOnOverlap: 1
   m_ShadowIntensity: 0
   m_ShadowVolumeIntensity: 0
   m_PointLightInnerAngle: 360
@@ -192,6 +192,8 @@ GameObject:
   - component: {fileID: 6885548175447282547}
   - component: {fileID: 7878184595279785386}
   - component: {fileID: 8936207552011164990}
+  - component: {fileID: 1603796127}
+  - component: {fileID: 1603796128}
   m_Layer: 0
   m_Name: Candle
   m_TagString: Untagged
@@ -321,7 +323,52 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ce706fc62b5b4cf6b3a01dda908b98c2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!95 &1603796127
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6885548175447282546}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: fdbc6ee3a7610d04eb05bcd4f89d35cd, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &1603796128
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6885548175447282546}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d241d006725bd0449804c4a68e656667, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
   _tag: Player
   _layer:
     serializedVersion: 2
     m_Bits: 4294967295
+  _action:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 8936207552011164990}
+        m_MethodName: Refill
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2

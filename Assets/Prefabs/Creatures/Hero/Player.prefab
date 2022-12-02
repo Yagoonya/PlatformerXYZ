@@ -950,10 +950,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: de6e6a9c290746e896558c2c61ce4441, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _interval:
-    _value: 1
-  _fuelMaxCapacity: 100
-  _candleLight: {fileID: 8372754389811184406}
+  _consumePerSecond: 1
+  _light: {fileID: 8372754389811184406}
 --- !u!1 &7997041186419658213
 GameObject:
   m_ObjectHideFlags: 0

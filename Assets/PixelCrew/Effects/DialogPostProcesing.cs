@@ -18,6 +18,7 @@ namespace PixelCrew.Effects
 
         private void Awake()
         {
+            if(_post==null) return;
             _post.profile.TryGet(out _vignette);
             _post.profile.TryGet(out _lens);
             _post.profile.TryGet(out _bloom);

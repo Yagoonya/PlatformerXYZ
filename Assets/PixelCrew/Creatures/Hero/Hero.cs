@@ -81,7 +81,8 @@ namespace PixelCrew.Creatures.Hero
 
         public void SetCandleActivity()
         {
-            _candle.SetCandleActivity();
+            var activity = _candle.gameObject.activeSelf;
+            _candle.gameObject.SetActive(!activity);
         }
 
         protected override void Awake()
