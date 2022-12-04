@@ -226,6 +226,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _target: {fileID: 3293266595557090083}
   _prefab: {fileID: 7513979257161638237, guid: 359342e4f34604448a6b9e184a033a13, type: 3}
+  _usePool: 0
 --- !u!114 &178267482
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -316,7 +317,6 @@ MonoBehaviour:
   _onChange:
     m_PersistentCalls:
       m_Calls: []
-  _immune: 0
 --- !u!50 &4168200767563191182
 Rigidbody2D:
   serializedVersion: 4
@@ -399,3 +399,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _target: {fileID: 3293266595890271843}
   _prefab: {fileID: 5979374440111092570, guid: 63c8a59a90ece824a989cb3d44cb317e, type: 3}
+  _usePool: 1

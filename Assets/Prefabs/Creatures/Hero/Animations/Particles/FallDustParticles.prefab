@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 934578296801886141}
   - component: {fileID: 934578296801886140}
   - component: {fileID: 934578296801886131}
-  - component: {fileID: 934578296801886130}
+  - component: {fileID: -2744349807412019184}
   m_Layer: 0
   m_Name: FallDustParticles
   m_TagString: Untagged
@@ -97,7 +97,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _frameRate: 10
   _clips:
-  - _name: fallDusts
+  - _name: run
     _sprites:
     - {fileID: 21300000, guid: a201057a761bdad49ac2b844b68125f6, type: 3}
     - {fileID: 21300000, guid: 8027cc959ff0cda4babed1fda36b6628, type: 3}
@@ -109,8 +109,8 @@ MonoBehaviour:
     _onComplete:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 934578296801886130}
-          m_MethodName: DestroyObject
+        - m_Target: {fileID: -2744349807412019184}
+          m_MethodName: Release
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -120,7 +120,7 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
---- !u!114 &934578296801886130
+--- !u!114 &-2744349807412019184
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -129,7 +129,20 @@ MonoBehaviour:
   m_GameObject: {fileID: 934578296801886129}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d708fd8809e2dde409672483ea993c60, type: 3}
+  m_Script: {fileID: 11500000, guid: 49b88aaf01164bfdad54eed9dca24a23, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _objectToDestroy: {fileID: 934578296801886129}
+  _onRestart:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 934578296801886131}
+        m_MethodName: SetClip
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: run
+          m_BoolArgument: 0
+        m_CallState: 2

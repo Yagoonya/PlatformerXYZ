@@ -28760,6 +28760,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _target: {fileID: 4409758222405756137}
   _prefab: {fileID: 7997041186419658213, guid: 3f680795e57fd0a43918be50be5004ca, type: 3}
+  _usePool: 0
 --- !u!1001 &6885548176392171336
 PrefabInstance:
   m_ObjectHideFlags: 0

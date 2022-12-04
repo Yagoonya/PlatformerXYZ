@@ -42,16 +42,19 @@ SpriteAtlas:
       enableTightPacking: 1
     variantMultiplier: 1
     packables:
-    - {fileID: 102900000, guid: c2e3f282f9fa02b40a00cb49d2c43aa1, type: 3}
+    - {fileID: 102900000, guid: 578d1abb6538e7043a234fa2b595157d, type: 3}
+    - {fileID: 102900000, guid: df353be8a8804864bb584a8aa0272cf4, type: 3}
+    - {fileID: 102900000, guid: 67a48f03a13bc944f9df9cb4ec8ba5dc, type: 3}
+    - {fileID: 102900000, guid: 3180323552c395d4ab271ec739cbdd6c, type: 3}
+    - {fileID: 102900000, guid: 5ed508c0c0436674596909d7f80f8b93, type: 3}
+    - {fileID: 102900000, guid: 64d3d0fcc7f91d544bea32c9bc641264, type: 3}
+    - {fileID: 102900000, guid: 73f51f8966dc3ec488b6dc24d493e4c4, type: 3}
     bindAsDefault: 1
   m_MasterAtlas: {fileID: 0}
   m_PackedSprites:
   - {fileID: 21300000, guid: f3a480605875de44493224f4f8721af6, type: 3}
-  - {fileID: 21300000, guid: 39a5e7d2d49e3e1499824fc7e48808a3, type: 3}
   - {fileID: 21300000, guid: a2351d33d940cc549b25b362c92dbbc0, type: 3}
-  - {fileID: 21300000, guid: 23278e833749a59428773c51a4a07e86, type: 3}
   - {fileID: 21300000, guid: 1bce3bc3aeeef9b48a90d83f55b6d5d4, type: 3}
-  - {fileID: 21300000, guid: fbd9d91430e3ed341b870ea2e0ee9203, type: 3}
   - {fileID: 21300000, guid: 2d413924aa18f96439ae5f8477a62dc8, type: 3}
   - {fileID: 21300000, guid: 8f8a4d847522f2149915a85dce00d109, type: 3}
   - {fileID: 21300000, guid: 1423bca4573464f4bb632994038b4cb6, type: 3}
@@ -59,12 +62,10 @@ SpriteAtlas:
   - {fileID: 21300000, guid: 01187915c40e3aa4ba285eeabd25d6df, type: 3}
   - {fileID: 21300000, guid: 1d3af48501957d24ab98cdd924dc6d3f, type: 3}
   - {fileID: 21300000, guid: 78c66ea5a97dc044388b9a717c9ba6e6, type: 3}
-  - {fileID: 21300000, guid: 50bca7466f792284185565b8f978b72e, type: 3}
   - {fileID: 21300000, guid: bf4460566ab8c264eb22094b5cd585cf, type: 3}
   - {fileID: 21300000, guid: a3ff8aa6d14718b4b9d684a777ff41de, type: 3}
   - {fileID: 21300000, guid: c6e5b1b69e74613479b8f0fbee592359, type: 3}
   - {fileID: 21300000, guid: 470109375e6444d4092ebdf885e527f8, type: 3}
-  - {fileID: 21300000, guid: ee569367b925ec14bb39a41ec92f50f9, type: 3}
   - {fileID: 21300000, guid: 2ec619d7e43d9fb42aef839c5e6213a5, type: 3}
   - {fileID: 21300000, guid: 0019aa1895d395249adb12677e2d4edb, type: 3}
   - {fileID: 21300000, guid: a32576289dbe95748bdc02089a395b19, type: 3}
@@ -87,7 +88,6 @@ SpriteAtlas:
   - {fileID: 1691966074973790518, guid: af5d329c5ba14eb47abd952f62b01b89, type: 3}
   - {fileID: 21300000, guid: 19ffc51d31c603c49b333ce5a56279c5, type: 3}
   - {fileID: 21300000, guid: 826855bd621078c46b59e36df5f8f5b3, type: 3}
-  - {fileID: 21300000, guid: f8c749bd96d0cee41b1e9e0feec5e85c, type: 3}
   - {fileID: 21300000, guid: 9a0a0cbd9ef9fb84abdf94a6e4c21531, type: 3}
   - {fileID: 21300000, guid: 34bbf1ed36793db408edf7d7a562e85d, type: 3}
   - {fileID: 21300000, guid: 953b45fd7d82f5a4a97a274c433b7d61, type: 3}
@@ -95,18 +95,14 @@ SpriteAtlas:
   - {fileID: 21300000, guid: 1c5f138ef2ee7a04c9dad7f7a45b6daf, type: 3}
   - {fileID: 21300000, guid: fb1f99aecec89a74cb30cb086fc44059, type: 3}
   - {fileID: 21300000, guid: 2dc250ee6f184a14188546be9284f694, type: 3}
-  - {fileID: 21300000, guid: ea1a961f7863b534ab32b66f48282e6b, type: 3}
   - {fileID: 21300000, guid: 0131e09fba6974e42b812455ea0abcff, type: 3}
   - {fileID: 21300000, guid: 7fc242af29a3736478ab18bc84a4d634, type: 3}
   - {fileID: 21300000, guid: db7bd5dfd49cfa74a900dfaa2fd3ecd3, type: 3}
   - {fileID: 21300000, guid: 378461efc5d68484caf48d3d4facfa8e, type: 3}
   m_PackedSpriteNamesToIndex:
   - I_Clover
-  - enemy-big
   - inventory-large
-  - blue
   - common-button-pressed
-  - green
   - S_Holy03
   - item-small
   - yellow-box-wide
@@ -114,12 +110,10 @@ SpriteAtlas:
   - force-shiled
   - DoorAvatar
   - Doppel
-  - hp-big
   - Check_Mark
   - Rus Flag
   - CrabbyAvatar
   - yellow-box-tall
-  - enemy-small
   - S_Buff04
   - inventory-small
   - Usa Flag
@@ -142,7 +136,6 @@ SpriteAtlas:
   - shield_2
   - Square
   - inventory-tall
-  - red
   - item-selection-common
   - S_Bow13
   - I_Clock
@@ -150,7 +143,6 @@ SpriteAtlas:
   - yellow-box-small
   - CapitanAvatar
   - item-selection
-  - yellow
   - inventory-wide
   - slider-horizontal-handle
   - dowble-jump

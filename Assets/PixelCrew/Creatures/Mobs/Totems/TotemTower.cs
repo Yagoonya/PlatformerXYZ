@@ -43,8 +43,7 @@ namespace PixelCrew.Creatures.Mobs.Totems
                 Destroy(gameObject, 1f);
             }
 
-            var hasAnyTarget = _traps.Any(x => x._vision.IsTouchingLayer);
-            if (hasAnyTarget)
+            if (HasAnyTarget())
             {
                 if (_cooldown.IsReady)
                 {
@@ -63,6 +62,17 @@ namespace PixelCrew.Creatures.Mobs.Totems
                     }
                 }
             }
+        }
+
+        private bool HasAnyTarget()
+        {
+            foreach (var trap in _traps)
+            {
+                if (trap._vision.IsTouchingLayer)
+                    return true;
+            }
+
+            return false;
         }
     }
 }

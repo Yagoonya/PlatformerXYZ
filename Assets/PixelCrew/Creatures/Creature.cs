@@ -3,6 +3,7 @@ using PixelCrew.Components;
 using PixelCrew.Components.Audio;
 using PixelCrew.Components.ColliderBased;
 using PixelCrew.Components.GameObjectBased;
+using UnityEngine.Profiling;
 
 namespace PixelCrew.Creatures
 {
