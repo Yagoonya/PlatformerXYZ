@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using PixelCrew.Components.LevelManegement;
 using PixelCrew.Model.Data;
@@ -14,6 +15,8 @@ namespace PixelCrew.Model
     {
         [SerializeField] private PlayerData _data;
         [SerializeField] private string _defaultCheckpoint;
+        
+        public static GameSession Instance { get; private set; }
         public PlayerData Data => _data;
         private PlayerData _save;
 
@@ -39,6 +42,7 @@ namespace PixelCrew.Model
                 Save();
                 InitModels();
                 DontDestroyOnLoad(this);
+                Instance = this;
                 StartSession(_defaultCheckpoint);
             }
         }
@@ -47,7 +51,7 @@ namespace PixelCrew.Model
         {
             SetChecked(defaultCheckpoint);
 
-            LoadHud();
+            LoadUIs();
             SpawnHero();
         }
 
@@ -82,9 +86,16 @@ namespace PixelCrew.Model
             _data.Hp.Value = (int)StatsModel.GetValue(StatId.Hp);
         }
 
-        private void LoadHud()
+        private void LoadUIs()
         {
             SceneManager.LoadScene("Hud", LoadSceneMode.Additive);
+            LoadOnScreenControls();
+        }
+
+        [Conditional("USE_ONSCREEN_CONTROLS")]
+        private void LoadOnScreenControls()
+        {
+            SceneManager.LoadScene("Controls", LoadSceneMode.Additive);
         }
 
         public void Save()
@@ -121,6 +132,8 @@ namespace PixelCrew.Model
 
         private void OnDestroy()
         {
+            if (Instance == this)
+                Instance = null;
             _trash.Dispose();
         }
 

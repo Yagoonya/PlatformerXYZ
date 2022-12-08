@@ -9,7 +9,7 @@ namespace PixelCrew.Components
 
         private void Start()
         {
-            _session = FindObjectOfType<GameSession>();
+            _session = GameSession.Instance;
         }
 
         public void Refill()

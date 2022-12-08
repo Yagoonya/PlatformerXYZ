@@ -18,7 +18,7 @@ namespace PixelCrew.Components.GameObjectBased
         {
             Destroy(_objectToDestroy);
             if (_state != null)
-                FindObjectOfType<GameSession>().StoreState(_state.Id);
+                GameSession.Instance.StoreState(_state.Id);
         }
     }
 }

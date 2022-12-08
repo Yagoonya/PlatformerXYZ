@@ -128,6 +128,17 @@
                 },
                 {
                     "name": "",
+                    "id": "59943cb9-ab6a-45ae-8c47-d1d04c32e2b0",
+                    "path": "<Gamepad>/leftStick",
+                    "interactions": "",
+                    "processors": "StickDeadzone(min=0.4)",
+                    "groups": "",
+                    "action": "Movement",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
                     "id": "81ea7aa2-be8d-4145-bb63-b299355fc16d",
                     "path": "<Keyboard>/e",
                     "interactions": "",
@@ -139,8 +150,30 @@
                 },
                 {
                     "name": "",
+                    "id": "98326c4e-fcac-4bd9-aaab-1d57dbe71988",
+                    "path": "<Gamepad>/buttonWest",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Interact",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
                     "id": "21cf3aec-1312-417d-8d5d-bdd3095976e1",
                     "path": "<Keyboard>/space",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Attack",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "2cebb1a3-6f13-4a21-b359-50d702188471",
+                    "path": "<Gamepad>/buttonEast",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -172,6 +205,17 @@
                 },
                 {
                     "name": "",
+                    "id": "5c321660-872b-4a0e-9a95-0553b2361b51",
+                    "path": "<Gamepad>/buttonSouth",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "NextItem",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
                     "id": "f9cfd85d-abd8-459c-ac6a-f39623fef503",
                     "path": "<Keyboard>/escape",
                     "interactions": "",
@@ -185,6 +229,17 @@
                     "name": "",
                     "id": "dfa0bbfa-8cbe-44c8-a081-7be80bc3374a",
                     "path": "<Keyboard>/f",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "UseItem",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "5a6e0058-c5a5-4c09-a63f-532a531d9279",
+                    "path": "<Gamepad>/buttonNorth",
                     "interactions": "",
                     "processors": "",
                     "groups": "",

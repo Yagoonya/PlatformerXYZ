@@ -11,7 +11,7 @@ namespace PixelCrew.Components
         private void Start()
         {
             _id = gameObject.name;
-            _session = FindObjectOfType<GameSession>();
+            _session = GameSession.Instance;
             var isRemoved = _session.RestoreState(_id);
             if(isRemoved)
                 Destroy(gameObject);

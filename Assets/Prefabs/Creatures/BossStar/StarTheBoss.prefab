@@ -107,8 +107,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b7371a608d4b4f4fbdd2c19b0b924f64, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _projectile: {fileID: 1566969527601864653, guid: 91e119d9a4e33e548b0a43c7525dcad0,
-    type: 3}
+  _prefab: {fileID: 1566969527601864653, guid: 91e119d9a4e33e548b0a43c7525dcad0, type: 3}
   _burstCount: 10
   _delay: 0.5
   _spawnDelta: 5
@@ -462,7 +461,7 @@ MonoBehaviour:
   - _projectile: {fileID: 1238455576248112868, guid: a97cbeee04e78994598b0107bcabe0e8,
       type: 3}
     _burstCount: 15
-    _itemPerBurst: 2
+    _itemPerBurst: 10
     _delay: 0.1
   - _projectile: {fileID: 1238455576248112868, guid: a97cbeee04e78994598b0107bcabe0e8,
       type: 3}

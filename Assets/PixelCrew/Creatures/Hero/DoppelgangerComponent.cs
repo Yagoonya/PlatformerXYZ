@@ -1,6 +1,5 @@
 ﻿using System.Collections;
 using PixelCrew.Components.GameObjectBased;
-using PixelCrew.Utils;
 using UnityEngine;
 
 namespace PixelCrew.Creatures.Hero

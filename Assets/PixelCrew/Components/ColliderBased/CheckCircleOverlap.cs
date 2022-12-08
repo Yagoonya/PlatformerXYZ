@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Linq;
 using PixelCrew.Utils;
-using UnityEditor;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -32,11 +31,14 @@ namespace PixelCrew.Components.ColliderBased
             }
         }
 
+#if UNITY_EDITOR
         private void OnDrawGizmos()
         {
-            Handles.color = HandlesUtils.TransparentRed;
-            Handles.DrawSolidDisc(transform.position, Vector3.forward, _radius);
+            UnityEditor.Handles.color = HandlesUtils.TransparentRed;
+            UnityEditor.Handles.DrawSolidDisc(transform.position, Vector3.forward, _radius);
         }
+        
+#endif
 
         [Serializable]
         public class OnOverlapEvent : UnityEvent<GameObject>

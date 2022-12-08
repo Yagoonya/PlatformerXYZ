@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.Linq;
+﻿using System.Collections;
 using PixelCrew.Components;
 using PixelCrew.Components.ColliderBased;
 using PixelCrew.Components.GameObjectBased;
@@ -14,9 +11,7 @@ using PixelCrew.Model.Definitions.Player;
 using PixelCrew.Model.Definitions.Repository;
 using PixelCrew.Model.Definitions.Repository.Items;
 using PixelCrew.Utils;
-using UnityEditor.Animations;
 using UnityEngine;
-using Random = UnityEngine.Random;
 
 namespace PixelCrew.Creatures.Hero
 {
@@ -35,10 +30,10 @@ namespace PixelCrew.Creatures.Hero
         [SerializeField] private float _timeBetweenThrows = 0.2f;
         [SerializeField] private SpawnComponent _throwSpawner;
 
-        [Space] [Header("Animators")] [SerializeField]
-        private AnimatorController _armed;
-
-        [SerializeField] private AnimatorController _disarmed;
+        [Space] [Header("Animators")] 
+        
+        [SerializeField] private RuntimeAnimatorController _armed;
+        [SerializeField] private RuntimeAnimatorController _disarmed;
 
         [Space] [Header("DropsAfterHit")] [SerializeField]
         private ProbabilityDropComponent _hitDrop;
@@ -100,7 +95,7 @@ namespace PixelCrew.Creatures.Hero
         private void Start()
         {
             _cameraNoise = FindObjectOfType<CameraShakeEffect>();
-            _session = FindObjectOfType<GameSession>();
+            _session = GameSession.Instance;
             _session.Data.Invetory.OnChanged += OnInventoryChanged;
             _session.StatsModel.OnUpgraded += OnHeroUpgraded;
             _health.SetHealth(_session.Data.Hp.Value);

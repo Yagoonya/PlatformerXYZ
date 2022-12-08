@@ -28,7 +28,7 @@ namespace PixelCrew.UI.Windows.PlayerStats
 
             _dataGroup = new DataGroup<StatDef, StatWidget>(_prefab, _statsContainer);
             
-            _session = FindObjectOfType<GameSession>();
+            _session = GameSession.Instance;
             _session.StatsModel.InterfaceSelectedStat.Value = DefinitionFacade.I.Player.Stats[0].ID;
             _trash.Retain(_session.StatsModel.Subscribe(OnStatsChanged));
             _trash.Retain(_buyButton.onClick.Subscribe(OnBuy));

@@ -1,6 +1,10 @@
 ﻿using System.Collections;
 using PixelCrew.Utils;
+
+#if UNITY_EDITOR
 using UnityEditor;
+#endif
+
 using UnityEngine;
 using Random = UnityEngine.Random;
 
@@ -45,6 +49,7 @@ namespace PixelCrew.Components.GameObjectBased
             rigidBody.AddForce(forceVector * _speed, ForceMode2D.Impulse);
         }
 
+#if UNITY_EDITOR
         private void OnDrawGizmosSelected()
         {
             var position = transform.position;
@@ -60,6 +65,7 @@ namespace PixelCrew.Components.GameObjectBased
             Handles.color = new Color(1f, 1f, 1f, 0.1f);
             Handles.DrawSolidArc(position, Vector3.forward, rightBound, _sectorAngle, 1);
         }
+#endif
 
         private Vector2 AngleToVectorInSector(float angle)
         {

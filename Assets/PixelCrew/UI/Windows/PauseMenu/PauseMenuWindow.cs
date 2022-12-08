@@ -42,7 +42,7 @@ namespace PixelCrew.UI.Windows.PauseMenu
             {
                 SceneManager.LoadScene("MainMenu");
 
-                var session = FindObjectOfType<GameSession>();
+                var session = GameSession.Instance;
                 Destroy(session.gameObject);
             };
             Close();

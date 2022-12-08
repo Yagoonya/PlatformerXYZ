@@ -21,20 +21,18 @@ namespace PixelCrew.Components.GameObjectBased
         {
             var setting = _settings[Stage];
             var sectorStep = 2 * Mathf.PI / setting.BurstCount;
-            for (int i = 0; i < setting.BurstCount; i++)
+            for (int i = 0, burstCount =1; i < setting.BurstCount; i++, burstCount++)
             {
                 var angle = sectorStep * i;
                 var direction = new Vector2(Mathf.Cos(angle), Mathf.Sin(angle));
 
-                for (int j = 0; j < setting.ItemPerBurst; j++)
-                {
-                    var instance = SpawnUtils.Spawn(setting.Projectile.gameObject, transform.position);
-                    var projectile = instance.GetComponent<DirectionalProjectile>();
-                    projectile.Launch(direction);
+                var instance = SpawnUtils.Spawn(setting.Projectile.gameObject, transform.position);
+                var projectile = instance.GetComponent<DirectionalProjectile>();
+                projectile.Launch(direction);
+                
+                if(burstCount<setting.ItemPerBurst) continue;
 
-                    yield return new WaitForSeconds(setting.Delay);
-                }
-
+                burstCount = 0;
                 yield return new WaitForSeconds(setting.Delay);
             }
         }
