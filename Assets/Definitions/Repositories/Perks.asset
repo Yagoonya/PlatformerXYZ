@@ -19,7 +19,7 @@ MonoBehaviour:
     _price:
       _itemId: GreenDiamond
       _count: 2
-    _cooldown: 3
+    _cooldown: 0.5
   - _id: super-throw
     _icon: {fileID: 21300000, guid: 7562f8cb5f2687042bc1a10722c787cc, type: 3}
     _info: This is Super throw.
@@ -32,7 +32,7 @@ MonoBehaviour:
     _info: This is Force shield.
     _price:
       _itemId: GreenDiamond
-      _count: 50
+      _count: 10
     _cooldown: 10
   - _id: doppelganger
     _icon: {fileID: 21300000, guid: 78c66ea5a97dc044388b9a717c9ba6e6, type: 3}
@@ -40,5 +40,5 @@ MonoBehaviour:
       puzzles!
     _price:
       _itemId: GreenDiamond
-      _count: 100
+      _count: 5
     _cooldown: 10

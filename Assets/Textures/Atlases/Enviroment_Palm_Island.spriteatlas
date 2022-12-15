@@ -6,7 +6,7 @@ SpriteAtlas:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Enviroment_Palm
+  m_Name: Enviroment_Palm_Island
   m_EditorData:
     serializedVersion: 2
     textureSettings:
@@ -43,9 +43,18 @@ SpriteAtlas:
     variantMultiplier: 1
     packables:
     - {fileID: 2800000, guid: 3329e86af04d29c4ba6af7d2f7c0986e, type: 3}
+    - {fileID: 2800000, guid: 8213932f6c96e004e9aa46e270868e67, type: 3}
+    - {fileID: 2800000, guid: b9ba0e47da4259e4e9e29b547e46f16a, type: 3}
+    - {fileID: 2800000, guid: 6d65fbf9818ec8a49ac1d862381fc460, type: 3}
     bindAsDefault: 1
   m_MasterAtlas: {fileID: 0}
   m_PackedSprites:
+  - {fileID: 21300000, guid: b9ba0e47da4259e4e9e29b547e46f16a, type: 3}
+  - {fileID: -1623757268805046426, guid: 6d65fbf9818ec8a49ac1d862381fc460, type: 3}
+  - {fileID: -5249397648964821033, guid: 6d65fbf9818ec8a49ac1d862381fc460, type: 3}
+  - {fileID: 5723994069117334142, guid: 6d65fbf9818ec8a49ac1d862381fc460, type: 3}
+  - {fileID: -8044242206112894339, guid: 6d65fbf9818ec8a49ac1d862381fc460, type: 3}
+  - {fileID: -7225908584164651398, guid: 6d65fbf9818ec8a49ac1d862381fc460, type: 3}
   - {fileID: 802857254159732353, guid: 3329e86af04d29c4ba6af7d2f7c0986e, type: 3}
   - {fileID: 1278475588773109743, guid: 3329e86af04d29c4ba6af7d2f7c0986e, type: 3}
   - {fileID: -6487789065682943626, guid: 3329e86af04d29c4ba6af7d2f7c0986e, type: 3}
@@ -58,7 +67,23 @@ SpriteAtlas:
   - {fileID: 762285979657935423, guid: 3329e86af04d29c4ba6af7d2f7c0986e, type: 3}
   - {fileID: 3531074664856275464, guid: 3329e86af04d29c4ba6af7d2f7c0986e, type: 3}
   - {fileID: -6024505487453159095, guid: 3329e86af04d29c4ba6af7d2f7c0986e, type: 3}
+  - {fileID: -6516188835842127268, guid: 8213932f6c96e004e9aa46e270868e67, type: 3}
+  - {fileID: -6506295649569398300, guid: 8213932f6c96e004e9aa46e270868e67, type: 3}
+  - {fileID: 5774581190672780694, guid: 8213932f6c96e004e9aa46e270868e67, type: 3}
+  - {fileID: 8555387111562698892, guid: 8213932f6c96e004e9aa46e270868e67, type: 3}
+  - {fileID: -345796227696879772, guid: 8213932f6c96e004e9aa46e270868e67, type: 3}
+  - {fileID: -6169288876263656931, guid: 8213932f6c96e004e9aa46e270868e67, type: 3}
+  - {fileID: 3752182219161834440, guid: 8213932f6c96e004e9aa46e270868e67, type: 3}
+  - {fileID: 8102241899294057151, guid: 8213932f6c96e004e9aa46e270868e67, type: 3}
+  - {fileID: 1698892039137845416, guid: 8213932f6c96e004e9aa46e270868e67, type: 3}
+  - {fileID: 1582984904356444693, guid: 8213932f6c96e004e9aa46e270868e67, type: 3}
   m_PackedSpriteNamesToIndex:
+  - Spikes
+  - Platforms (32x32)_3
+  - Platforms (32x32)_2
+  - Platforms (32x32)_1
+  - Platforms (32x32)_5
+  - Platforms (32x32)_4
   - PalmTreeBackgroundSheet_10
   - PalmTreeBackgroundSheet_11
   - PalmTreeBackgroundSheet_5
@@ -71,5 +96,15 @@ SpriteAtlas:
   - PalmTreeBackgroundSheet_2
   - PalmTreeBackgroundSheet_9
   - PalmTreeBackgroundSheet_8
-  m_Tag: Enviroment_Palm
+  - Helm_2
+  - Helm_3
+  - Helm_0
+  - Helm_1
+  - Helm_6
+  - Helm_7
+  - Helm_4
+  - Helm_5
+  - Helm_8
+  - Helm_9
+  m_Tag: Enviroment_Palm_Island
   m_IsVariant: 0

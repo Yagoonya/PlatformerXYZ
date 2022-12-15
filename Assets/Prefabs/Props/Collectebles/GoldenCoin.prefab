@@ -17,6 +17,7 @@ GameObject:
   - component: {fileID: 5114625931061757568}
   - component: {fileID: 3651004846371178731}
   - component: {fileID: 7102212209592926736}
+  - component: {fileID: 1767839967}
   m_Layer: 12
   m_Name: GoldenCoin
   m_TagString: Coin
@@ -284,3 +285,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _clip: {fileID: 8300000, guid: ebc944593b7b65c4385992bb13263e30, type: 3}
+--- !u!114 &1767839967
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7097230355754658548}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ef0f8d2435b74bbba68a086fa190ac52, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

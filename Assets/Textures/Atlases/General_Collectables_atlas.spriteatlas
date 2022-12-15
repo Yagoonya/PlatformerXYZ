@@ -47,13 +47,18 @@ SpriteAtlas:
     - {fileID: 102900000, guid: 5c56fc49ed9edf44c8a9e04ed4929c02, type: 3}
     - {fileID: 2800000, guid: 4fe0f34fce016fe47b4de87185faebdf, type: 3}
     - {fileID: 2800000, guid: 03bf33c838026e849bf9eb7fefdbb3f5, type: 3}
+    - {fileID: 102900000, guid: ba1937dda2f7e854c9c509a7893a4f1f, type: 3}
     bindAsDefault: 1
   m_MasterAtlas: {fileID: 0}
   m_PackedSprites:
   - {fileID: 21300000, guid: f93e65c080e8a1c429c07e4040f8addb, type: 3}
+  - {fileID: 21300000, guid: b6ba79e05bb57604f9ffa334b1574b6b, type: 3}
   - {fileID: 21300000, guid: d4f7de43a0dcf3b4abddf17f08804c70, type: 3}
+  - {fileID: 21300000, guid: 4d940c44f81ac3947880307250c11d9a, type: 3}
+  - {fileID: 21300000, guid: 003623644cf5f9a428c0c219bd2e742a, type: 3}
   - {fileID: 21300000, guid: 94aea89432255644eb91767344a7ff16, type: 3}
   - {fileID: 21300000, guid: 7acd0a949a6d3e4458c90f82da02bd19, type: 3}
+  - {fileID: 21300000, guid: 3b22ba360219f8d48a40b2b948b7e361, type: 3}
   - {fileID: 21300000, guid: e7874258728519b42a0ca2fa9ba137be, type: 3}
   - {fileID: -6202940564662568092, guid: 03bf33c838026e849bf9eb7fefdbb3f5, type: 3}
   - {fileID: -8747976068718324687, guid: 03bf33c838026e849bf9eb7fefdbb3f5, type: 3}
@@ -90,9 +95,13 @@ SpriteAtlas:
   - {fileID: 8122624360522206716, guid: 6e8729c89e06e8e43879caa12ea7b33d, type: 3}
   - {fileID: 6182866675272960015, guid: 6e8729c89e06e8e43879caa12ea7b33d, type: 3}
   - {fileID: 4120314310512222242, guid: 6e8729c89e06e8e43879caa12ea7b33d, type: 3}
+  - {fileID: 21300000, guid: eda3080a028b2ca4ab738dcae4129b52, type: 3}
+  - {fileID: 21300000, guid: 5b14177b2887e1b4b86c83f47c613f77, type: 3}
   - {fileID: 21300000, guid: 7c62301caa4341e468146961e07f761b, type: 3}
   - {fileID: 21300000, guid: ffaf087da1e5ec94794ccb24ceae724d, type: 3}
+  - {fileID: 21300000, guid: 9df859cdc71bc204784f8d6bfc507850, type: 3}
   - {fileID: 21300000, guid: 843860dd7d1262e41a4dc74c74461874, type: 3}
+  - {fileID: 21300000, guid: 115488dd16318994a847d69cc84c3c37, type: 3}
   - {fileID: -6288512792030432889, guid: 4fe0f34fce016fe47b4de87185faebdf, type: 3}
   - {fileID: 7609282858266732271, guid: 4fe0f34fce016fe47b4de87185faebdf, type: 3}
   - {fileID: 8793606821965667882, guid: 4fe0f34fce016fe47b4de87185faebdf, type: 3}
@@ -108,9 +117,13 @@ SpriteAtlas:
   - {fileID: 21300000, guid: 5fe065ff25655df45bf89941b1e432e4, type: 3}
   m_PackedSpriteNamesToIndex:
   - Sword Idle 06
+  - 03
   - LargePotions
+  - 02
+  - 05
   - Sword Idle 04
   - Sword Idle 05
+  - 01
   - Sword Idle 08
   - Potions_8
   - Potions_9
@@ -147,9 +160,13 @@ SpriteAtlas:
   - BigHealthPotion_5
   - BigHealthPotion_4
   - BigHealthPotion_6
+  - 07
+  - 06
   - Sword Idle 02
   - Sword Idle 03
+  - 04
   - Sword Idle 07
+  - 08
   - Coins_11
   - Coins_10
   - Coins_6

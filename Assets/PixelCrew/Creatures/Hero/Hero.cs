@@ -50,7 +50,6 @@ namespace PixelCrew.Creatures.Hero
         private bool _allowDoubleJump;
         private bool _isOnWall;
 
-        private CameraShakeEffect _cameraNoise;
         private GameSession _session;
         private float _defaultGravityScale;
         private HealthComponent _health;
@@ -94,7 +93,6 @@ namespace PixelCrew.Creatures.Hero
 
         private void Start()
         {
-            _cameraNoise = FindObjectOfType<CameraShakeEffect>();
             _session = GameSession.Instance;
             _session.Data.Invetory.OnChanged += OnInventoryChanged;
             _session.StatsModel.OnUpgraded += OnHeroUpgraded;
@@ -216,7 +214,6 @@ namespace PixelCrew.Creatures.Hero
         public override void TakeDamage()
         {
             base.TakeDamage();
-            _cameraNoise.Shake();
             if (CoinsCount > 0)
             {
                 SpawnCoins();
@@ -323,11 +320,13 @@ namespace PixelCrew.Creatures.Hero
                 case Effect.AddHp:
                     _session.Data.Hp.Value += (int)potion.Value;
                     var health = _session.Data.Hp.Value;
+                    _session.Data.Invetory.Remove(potion.Id, 1);
                     _health.SetHealth(health);
                     break;
                 case Effect.SpeedUp:
                     _speedUpCooldown.Value = _speedUpCooldown.RemainingTime + potion.Time;
                     _additionalSpeed = Mathf.Max(potion.Value, _additionalSpeed);
+                    _session.Data.Invetory.Remove(potion.Id, 1);
                     _speedUpCooldown.Reset();
                     break;
             }

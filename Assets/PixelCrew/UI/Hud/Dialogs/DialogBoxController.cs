@@ -60,8 +60,8 @@ namespace PixelCrew.UI.Hud.Dialogs
 
         private IEnumerator TypeDialogText(Text textContainer, GameObject container)
         {
-            container.SetActive(true);
             textContainer.text = string.Empty;
+            container.SetActive(true);
             var sentence = _data.Sentences[_currentSentence].Sentence;
 
             foreach (var letter in sentence)
@@ -78,8 +78,9 @@ namespace PixelCrew.UI.Hud.Dialogs
         {
             if (_typingRoutine == null) return;
 
-            StopTypeAnimation();
             _text.text = _data.Sentences[_currentSentence].Sentence;
+            _textR.text = _data.Sentences[_currentSentence].Sentence;
+            StopTypeAnimation();
         }
 
         public void OnContinue()
